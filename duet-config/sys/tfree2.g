@@ -19,7 +19,7 @@ G53 G1 X214.5 Y230 F50000
 G53 G1 X214.5 Y240 F5000
 
 ;Open Coupler
-M98 P/macros/Coupler - Unlock
+M98 P/macros/Unlock Coupler
 
 ;fan off
 M106 P6 S0

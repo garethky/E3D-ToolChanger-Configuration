@@ -18,4 +18,4 @@ M913 C100				; Motors to 100% current
 G1 C0 F10000			; move C back to 0
 
 ;Open Coupler
-M98 P/macros/Coupler - Unlock
+M98 P/macros/Unlock Coupler
