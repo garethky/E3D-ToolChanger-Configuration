@@ -10,9 +10,6 @@ M555 P2                         ; Set firmware compatibility to look like Marlin
 
 ; Network
 M550 P"ToolChanger"                     ; Set machine name
-;M587 S"ssid" P"password"                ; WiFi Settings
-;M552 S1 P"ssid"                    ; Enable WiFi Networking
-;M552 S120                           ; Enable Networking
 M552 P0.0.0.0 S1                                        ; enable network and acquire dynamic address via DHCP
 M586 P0 S1                         ; Enable HTTP
 M586 P1 S0                         ; Disable FTP
@@ -34,12 +31,12 @@ M569 P9 S0                         ; Drive 9 UNUSED
 
 ; Endstops
 M574 X1 Y1 S3                             ; Set X / Y endstop stall detection
-M574 Z0 								; No Z endstop
-M574 C1 S3								; Stall detect coupler at low end of its range
+M574 Z0                                 ; No Z endstop
+M574 C1 S3                                ; Stall detect coupler at low end of its range
 
 ; Z- Probe
-M950 F9 C"out9"							; We need a 24 volt 2 pin source to power the Z-Probe, this is it
-M106 P9 S1.0							; turn the "fan" on 100% aka, 24 volt supply
+M950 F9 C"out9"                            ; We need a 24 volt 2 pin source to power the Z-Probe, this is it
+M106 P9 S1.0                            ; turn the "fan" on 100% aka, 24 volt supply
 M558 P5 C"io3.in" I0 H2 F360 T20000 A4 S0.005        ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
 G31 P200 X5 Y-11                           ; Set Z probe trigger value, offset and trigger height
 M557 X15:285 Y15:185 S45:42.5            ; Set mesh bed leveling size and density
@@ -78,15 +75,15 @@ M84 S120                         ; Set idle timeout
 M915 C S6 F0 H200 R0
 
 ;Stall Detection X/Y
-M915 X Y S1 F0 H280 R0					; X / Y Axes from dag's config
+M915 X Y S1 F0 H280 R0                    ; X / Y Axes from dag's config
 
 ; Heaters
 
 ; bed heater
 M308 S0 P"temp0" Y"thermistor" T100000 B4138 C0                 ; Set Bed thermistor
-M950 H0 C"out0" T0						; Bed heater
+M950 H0 C"out0" T0                        ; Bed heater
 M143 H0 S225                            ; Set temperature limit for heater 0 to 225C
-M140 H0									; Bed heater is heater 0, set them to 0.
+M140 H0                                    ; Bed heater is heater 0, set them to 0.
 
 / Tool Heaters
 M305 S"T0" P1 T500000 B4723 C1.196220e-7 R4700          ; Slice Engineering Thermistor for T0
