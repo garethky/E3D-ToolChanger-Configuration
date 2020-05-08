@@ -6,3 +6,6 @@ config.g.bak
 
 # Dont need my height map in git
 heightmap.csv
+
+# this is a settings file written by the Duet Web Control and isnt really human edited.
+dwc2settings.json

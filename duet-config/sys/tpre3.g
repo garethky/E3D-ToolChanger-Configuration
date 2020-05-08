@@ -2,7 +2,7 @@
 ; called before tool 3 is selected
 
 ;Ensure no tool is selected
-;T-1
+T-1
 
 ;Unlock Coupler
 M98 P/macros/Coupler - Unlock

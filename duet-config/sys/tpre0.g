@@ -2,7 +2,7 @@
 ; called before tool 0 is selected
 
 ;Ensure no tool is selected
-;T-1
+T-1
 
 ;Unlock Coupler
 M98 P/macros/Coupler - Unlock
@@ -10,11 +10,11 @@ M98 P/macros/Coupler - Unlock
 ;Move to location
 G1 X-10.5 Y200 F50000
 
-;Move in
-G1 X-10.5 Y230 F50000
+;Move in to within 10mm
+G1 X-10.5 Y229.8 F50000
 
 ;Collect
-G1 X-10.5 Y242.5 F2500
+G1 X-10.5 Y239.8 F2500
 
 ;Close Coupler
 M98 P/macros/Coupler - Lock
