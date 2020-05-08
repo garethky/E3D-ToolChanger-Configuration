@@ -1,0 +1,433 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pro",
+				"property"
+			],
+			[
+				"new",
+				"newValue"
+			],
+			[
+				"update",
+				"updateProps"
+			],
+			[
+				"up",
+				"updateProps"
+			],
+			[
+				"anno",
+				"annotationShapesUpdate"
+			],
+			[
+				"Re",
+				"RectangleComponent"
+			],
+			[
+				"rectan",
+				"rectangleComponent"
+			],
+			[
+				"annotationSh",
+				"annotationShape"
+			],
+			[
+				"write",
+				"writeProcessId"
+			],
+			[
+				"kill",
+				"killIfExists"
+			],
+			[
+				"so",
+				"sourceDir"
+			],
+			[
+				"req",
+				"requiredFormat"
+			],
+			[
+				"vi",
+				"ViewerRequestFunction"
+			],
+			[
+				"AWS",
+				"AWS_REGION"
+			],
+			[
+				"AW",
+				"AWS_ACCOUNT_ID"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "duet-config/sys/.gitignore",
+			"settings":
+			{
+				"buffer_size": 182,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "# exclude firmware images"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 416,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "# General Mac ignore stuff"
+			}
+		},
+		{
+			"file": "duet-config/sys/homey.g",
+			"settings":
+			{
+				"buffer_size": 840,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"reposi",
+				"Package Control: Remove Repository"
+			],
+			[
+				"remove",
+				"Package Control: Remove Channel"
+			],
+			[
+				"remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"add re",
+				"Package Control: Add Repository"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/gareth/Documents/GitHub/E3D-ToolChanger-Configuration"
+	],
+	"file_history":
+	[
+		"/Volumes/boot/sys/config.g",
+		"/Users/gareth/Downloads/config.g.bak",
+		"/Users/gareth/Desktop/PNWS_Toolchanger_0.3mm_PETG__2h6m.gcode",
+		"/Users/gareth/Desktop/Visor_Frame_Toolchanger_0.2mm_PETG__1h26m.gcode",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/annotated-step-image-input/AnnotatedImageInputType.js",
+		"/Users/Shared/Relocated Items/Configuration/private/etc/master.passwd.system_default",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/README.md",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/annotated-step-image-input/AnnotatedStepImageInput.css",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/schema.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/annotated-step-image-input/AnnotatedStepImageInput.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/annotated-step-image-input/DraggableGroup.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/package.json",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/package-lock.json",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/package.json",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/circleAnnotation.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/rectangleAnnotation.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/annotated-step-image-input/sanity.json",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/sanity.json",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/annotated-step-image-input/ChessBoardType.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/dashboard-widget-structure-menu/sanity.json",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/documents/post.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/annotated-step-image-input/AnnotatedStepImagePreview.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/stepImage.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/stepSection.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/dashboardConfig.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/node_modules/palx/node_modules/chroma-js/docs/libs/codemirror/lib/codemirror.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/node_modules/@sanity/cli/bin/sanity-cli.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/dashboard-widget-structure-menu/src/props.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/galleryImage.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/dashboard-widget-structure-menu/src/components/index.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/dashboard-widget-structure-menu/src/components/StructureMenuWidget.css",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/dashboard-widget-structure-menu/src/components/StructureMenuWidget.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/plugins/dashboard-widget-structure-menu/src/lib/structure.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/annotationColor.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/imageGallerySection.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/bodyPortableText.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/authorReference.js",
+		"/Users/gareth/Documents/GitHub/test-sanity-gatsby-blog/studio/schemas/objects/textSection.js",
+		"/Users/gareth/Documents/GitHub/lab-notes/_plugins/image_generator.rb",
+		"/Users/gareth/Documents/GitHub/lab-notes/lab-notes.sublime-project",
+		"/Users/gareth/Library/Application Support/Sublime Text 3/Packages/User/jekyll.sublime-build",
+		"/Users/gareth/Documents/GitHub/lab-notes/.gitignore",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/build-fast.sh",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/build.sh",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/lambda/origin-response-function/index.js",
+		"/Users/gareth/Documents/GitHub/lab-notes/_plugins/image.rb",
+		"/Users/gareth/Documents/GitHub/lab-notes/_config.yml",
+		"/Users/gareth/Documents/GitHub/lab-notes/Gemfile",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/CloudFormationTemplate.yaml",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/test/tes-response.json",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/test/test-request.json",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/lambda/viewer-request-function/index.js",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/clean.sh",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/lambda/origin-response-function/origin-response-function.js",
+		"/Users/gareth/Documents/GitHub/lab-notes/_posts/2019-01-28-welcome-to-jekyll.markdown",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/lambda/viewer-request-function/viewer-request-function.js",
+		"/Users/gareth/Documents/GitHub/lab-notes/image-processor/.gitignore",
+		"/Users/gareth/Desktop/fpv wing battery tray.svg"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "duet-config/sys/.gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 182,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								182,
+								182
+							]
+						],
+						"settings":
+						{
+							"auto_name": "# exclude firmware images",
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 416,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								294,
+								294
+							]
+						],
+						"settings":
+						{
+							"auto_name": "# General Mac ignore stuff",
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "duet-config/sys/homey.g",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 840,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 295.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Jekyll Serve",
+	"project": "duetconfig.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 262.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

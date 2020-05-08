@@ -1,0 +1,8 @@
+# exclude firmware images
+*.bin
+
+# this is the automatically generated conig backup file and it doesnt need ot be tracked
+config.g.bak
+
+# Dont need my height map in git
+heightmap.csv
