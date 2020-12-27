@@ -1,11 +1,11 @@
 ; tpre3.g
 ; called before tool 3 is selected
 
-;Ensure no tool is selected
-T-1
-
 ;Unlock Coupler
-M98 P/macros/Unlock Coupler
+M98 P"/macros/Unlock Coupler"
+
+; Move to safe Y distance from Tool heads
+G1 Y150 F50000
 
 ;Move to location
 G1 X304.5 Y200 F50000
@@ -17,7 +17,7 @@ G1 X304.5 Y230 F50000
 G1 X304.5 Y239.5 F2500
 
 ;Close Coupler
-M98 P/macros/Lock Coupler
+M98 P"/macros/Lock Coupler"
 
 ;WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
 ;if you are using non-standard length hotends ensure the bed is lowered enough BEFORE undocking the tool!

@@ -1,26 +1,30 @@
 ; homex.g
 ; called to home the x axis
 
-G91             ; use relative positioning
+M569 P0 D2            ; Spread Cycle On
+M569 P1 D2            ; Spread Cycle On
+G91                   ; use relative positioning
 
 G1 H2 X0.5 Y0.5 F10000        ; energise
 
-M400             ; make sure everything has stopped before we make changes
-G4 P100            ; wait 400ms
+M400                  ; make sure everything has stopped before we make changes
+G4 P100               ; wait 400ms
 
-M913 X30 Y30         ; drop motor currents to 20%
-;M915 H200 X Y S3 R0 F0     ; set X and Y to sensitivity 3, do nothing when stall, unfiltered
+M913 X30 Y30          ; drop motor currents to 30%
 
 G1 H2 Z3 F5000        ; lift Z 3mm
 G1 H1 X-400 F3000     ; move left 400mm, stopping at the endstop
-G1 H1 X2 F2000         ; move away from end
+G1 H1 X2 F2000        ; move away from end
 G1 H1 X-400 F3000     ; repeat the homing move because it doesn't always work first time
-G1 H1 X2 F2000         ; move away from end
-G1 H2 Z-3 F1200        ; lower Z
-G90             ; back to absolute positioning
+G1 H1 X2 F2000        ; move away from end
+G1 H2 Z-3 F1200       ; lower Z
+G90                   ; back to absolute positioning
 
-M400             ; make sure everything has stopped before we reset the motor currents
-G4 P100            ; wait 400ms
-M913 X100 Y100         ; motor currents back to 100%
+M400                  ; make sure everything has stopped before we reset the motor currents
+G4 P100               ; wait 400ms
+M913 X100 Y100        ; motor currents back to 100%
+M569 P0 D3            ; Stealth Chop on
+M569 P1 D3            ; Stealth Chop on
+
 
 

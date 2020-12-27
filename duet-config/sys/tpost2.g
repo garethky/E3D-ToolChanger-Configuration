@@ -5,7 +5,7 @@
 M116 P2
 
 ;prime nozzle
-;M98 Pprime.g
+;M98 P"prime.g"
 
 ; Restore fan speed if any
 M106 R2

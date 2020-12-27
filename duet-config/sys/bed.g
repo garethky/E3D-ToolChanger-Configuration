@@ -1,13 +1,15 @@
 ; Bed Mesh Leveling
 
+; Home Z
+; TODO: conditionally home Z only if not already homed
 G28 Z
 
-G1 S2 Z2 F5000        ; lift Z 3mm
+G1 H2 Z2 F5000        ; lift Z 3mm
 
-G29
+G29 S2  ; clear height map
+G29     ; run mesh bed leveling   
 
-;disable mesh leveling, needs to be enabled at the start of your print and disabled again when finished.
+; disable mesh leveling, needs to be enabled at the start of your print and disabled again when finished.
 G29 S2
 
-; Park the head
-G1 X150 Y-49 F50000
+G98 P"/macros/Park"
