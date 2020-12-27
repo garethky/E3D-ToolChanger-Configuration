@@ -9,7 +9,7 @@ G1 H2 X0.5 Y0.5 F10000   ; energise
 
 M400                     ; make sure everything has stopped before we make changes
 
-M913 X30 Y30             ; drop motor currents to 30%
+M913 X45 Y45             ; drop motor currents to 45%
 
 ;G1 H2 Z3 F5000           ; lift Z 3mm
 G1 H1 X-400 F3000        ; move left 400mm, stopping at the endstop

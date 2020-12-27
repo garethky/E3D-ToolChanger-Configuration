@@ -5,13 +5,13 @@
 M98 P"/macros/Unlock Coupler"
 
 ; Move to safe Y distance from Tool heads
-G1 Y150 F50000
+G1 Y150 F15000
 
 ;Move to location
-G1 X304.5 Y200 F50000
+G1 X304.5 Y200 F15000
 
 ;Move in
-G1 X304.5 Y230 F50000
+G1 X304.5 Y230 F15000
 
 ;Collect
 G1 X304.5 Y239.5 F2500

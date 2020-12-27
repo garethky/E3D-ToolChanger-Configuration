@@ -1,11 +1,11 @@
 # exclude firmware images
 *.bin
 
-# this is the automatically generated conig backup file and it doesnt need ot be tracked
+# this is the automatically generated config backup file and it doesn't need to be tracked
 config.g.bak
 
 # Dont need my height map in git
 heightmap.csv
 
-# this is a settings file written by the Duet Web Control and isnt really human edited.
+# this is a settings file written by the Duet Web Control and isn't really human edited.
 dwc2settings.json
