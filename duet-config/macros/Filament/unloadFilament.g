@@ -9,7 +9,7 @@ M109 S{tools[5].offsets[0]}
 M83 ; Extruder to relative mode
 
 ; G1 E-10 F{tools[5].offsets[0] * 2} ; gently pull for 10mm at 2x the regular extrusion rate
-; G1 E-10 F600 ; gently pull for 10mm at 2x the regular extrusion rate
+G1 E-10 F600 ; gently pull for 10mm at 2x the regular extrusion rate
 G1 E-100 F6000 ; rapidly eject filament, feed -100mm of filament at 100mm/s
 
 ; shut the heater off
