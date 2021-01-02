@@ -23,7 +23,7 @@ M569 P4 S0                          ; Drive 4 E0
 M569 P5 S1                          ; Drive 5 E1
 ; ## Tool board drivers
 M569 P1.0 S0                        ; Drive 6 (no used)
-M569 P1.1 S0                        ; Drive 7 E2
+M569 P1.1 S1                        ; Drive 7 E2
 M569 P1.2 S0                        ; Drive 8 E3
 
 M584 X0 Y1 Z2 C3 E4:5:1.1:1.2                       ; Apply custom axis to drive mapping
@@ -68,21 +68,24 @@ M143 H0 S150                                        ; Set temperature limit for 
 M140 H0                                             ; Bed heater is heater 0, set temp to 0.
 
 ; ## Tool Heaters
-M308 S1 P"temp1" Y"thermistor" A"T0 Temp" T500000 B4723 C1.196220e-7 R4700     ; Slice Engineering Thermistor for T0
+M308 S1 P"temp1" Y"thermistor" A"T1 Temp" T500000 B4723 C1.196220e-7 R4700     ; Slice Engineering Thermistor for T0
 M950 H1 C"out1" T1                                                  ; Bind heater 1 to out1 pin and sensor 1
 M143 H1 S350                                                        ; Set temperature limit for heater 1 to 350C
 
-M308 S2 P"temp2" Y"thermistor" A"T1 Temp" T500000 B4723 C1.196220e-7 R4700     ; Slice Engineering Thermistor for T1
+M308 S2 P"temp2" Y"thermistor" A"T2 Temp" T500000 B4723 C1.196220e-7 R4700     ; Slice Engineering Thermistor for T1
 M950 H2 C"out2" T2                                                  ; Bind heater 2 to out2 pin and sensor 2
 M143 H2 S350                                                        ; Set temperature limit for heater 2 to 350C
 
-M308 S3 P"1.temp0" Y"thermistor" A"T2 Temp" R4700 T100000 B4388     ; E3D thermistor for T2
+M308 S3 P"1.temp0" Y"thermistor" A"T3 Temp" R4700 T100000 B4388     ; E3D thermistor for T2
 M950 H3 C"1.out0" T3                                                ; Bind heater 3 to 1.out0 pin and sensor 3
 M143 H3 S350                                                        ; Set temperature limit for heater 3 to 350C
 
-M308 S4 P"1.temp1" Y"thermistor" A"T3 Temp" R4700 T100000 B4388     ; E3D thermistor for T3
+M308 S4 P"1.temp1" Y"thermistor" A"T4 Temp" R4700 T100000 B4388     ; E3D thermistor for T3
 M950 H4 C"1.out1" T4                                                ; Bind heater 4 to 1.out1 pin and sensor 4
 M143 H4 S350                                                        ; Set temperature limit for heater 4 to 350C
+
+; Thermistor for testing
+; M308 S6 P"1.temp2" Y"thermistor" A"Test Thermistor Temp" T100000 B4138 C0
 
 ; # Fan Setup
 ; ## Tool 0
@@ -110,19 +113,19 @@ M950 F7 C"1.out5"           ; Part Cooling Fan
 M106 P7 S0                  ; Part Cooling to 0 speed
 
 ; # Tools
-M563 P0 S"T0" D0 H1 F1      ; Define tool 0
+M563 P0 S"T1" D0 H1 F1      ; Define tool 0
 G10 P0 X0 Y0 Z0             ; Reset tool 0 axis offsets
 G10 P0 R0 S0                ; Reset initial tool 0 active and standby temperatures to 0C
 
-M563 P1 S"T1" D1 H2 F3      ; Define tool 1
+M563 P1 S"T2" D1 H2 F3      ; Define tool 1
 G10 P1 X0 Y0 Z0             ; Reset tool 1 axis offsets
 G10 P1 R0 S0                ; Reset initial tool 1 active and standby temperatures to 0C
 
-M563 P2 S"T2" D2 H3 F5      ; Define tool 2
+M563 P2 S"T3" D2 H3 F5      ; Define tool 2
 G10 P2 X0 Y0 Z0             ; Reset tool 2 axis offsets
 G10 P2 R0 S0                ; Reset initial tool 2 active and standby temperatures to 0C
 
-M563 P3 S"T3" D3 H4 F7      ; Define tool 3
+M563 P3 S"T4" D3 H4 F7      ; Define tool 3
 G10 P3 X0 Y0 Z0             ; Reset tool 3 axis offsets
 G10 P3 R0 S0                ; Reset initial tool 3 active and standby temperatures to 0C
 
@@ -138,3 +141,6 @@ G10 P3 X9.0 Y40.5 Z-5.150  ; T3
 
 ;deselect tools
 T-1
+
+; Load global variables
+M98 P"/sys/globals.g"
