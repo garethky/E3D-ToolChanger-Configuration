@@ -13,13 +13,13 @@ M83 ; Extruder to relative mode
 
 ; rapidly feed filament from the gears to the bottom of the heat break
 G1 E58 F900 ; Feed 58mm of filament at 15mm/s
-; G1 E30 F{tools[5].offsets[0]} ; Feed 30mm of filament slowly
-G1 E15 F{tools[state.currentTool].offsets[5]} ; Feed 15mm of filament slowly
+; G1 E15 F{tools[state.currentTool].offsets[5]} ; Feed 15mm of filament slowly
+G1 E15 F300
 
 ; purge and ask for more loop
 while true
-    ; G1 E30 F{tools[5].offsets[0]} ; Feed 30mm of filament slowly
-    G1 E30 F{tools[state.currentTool].offsets[5]} ; Feed 30mm of filament slowly
+    ; G1 E30 F{tools[state.currentTool].offsets[5]} ; Feed 30mm of filament slowly
+    G1 E15 F300
     M400; Wait for moves to complete
 
     ; ask the user if they want to do that again?

@@ -15,23 +15,23 @@ M84 S120                            ; Set idle timeout
 
 ; # Drive direction
 ; ## main board drivers
-M569 P0 S0 D3                       ; Drive 0 X
-M569 P1 S0 D3                       ; Drive 1 Y
-M569 P2 S1 D3                       ; Drive 2 Z
-M569 P3 S0                          ; Drive 3 C
-M569 P4 S0                          ; Drive 4 E0
-M569 P5 S1                          ; Drive 5 E1
+M569 P0 S0 D3 V100                      ; Drive 0 X
+M569 P1 S0 D3 V100                      ; Drive 1 Y
+M569 P2 S1 D3 V100                      ; Drive 2 Z
+M569 P3 S0                              ; Drive 3 C
+M569 P4 S0 D3 V100                      ; Drive 4 E0
+M569 P5 S1 D3 V100                      ; Drive 5 E1
 ; ## Tool board drivers
-M569 P1.0 S0                        ; Drive 6 (no used)
-M569 P1.1 S1                        ; Drive 7 E2
-M569 P1.2 S0                        ; Drive 8 E3
+M569 P1.0 S0                            ; Drive 6 (no used)
+M569 P1.1 S1 D3 V100                    ; Drive 7 E2
+M569 P1.2 S0 D3 V100                    ; Drive 8 E3
 
 M584 X0 Y1 Z2 C3 E4:5:1.1:1.2                       ; Apply custom axis to drive mapping
-M350 X16 Y16 Z16 C16 E16:16:16:16 I1                ; Configure x16 microstepping with interpolation on all axes
+M350 X256 Y256 Z16 C16 E16:16:16:16 I1                ; Configure x16 microstepping with interpolation on all axes
 M906 X1100 Y1100 Z1330 C400 E900:900:900:900 I30    ; Set motor currents (mA) and motor idle factor in percent
 
 M208 X-35:328.5 Y-49:243 Z0:280 C0:500              ; Set axis maxima & minima
-M92  X100  Y100  Z1600 C200 E816:816:816:816        ; Set steps per mm
+M92  X1600  Y1600  Z1600 C200 E816:816:816:816      ; Set steps per mm
 
 ; # Endstops
 M574 X1 Y1 S3                       ; Set X / Y endstop stall detection
@@ -49,7 +49,7 @@ M201 X6000  Y6000  Z600  C500  E5000:5000:5000:5000    ; Set maximum acceleratio
 M566 X400   Y400   Z40   C2    E100:100:100:100        ; Set maximum instantaneous speed changes/Jerk (mm/min).
 
 ; Movement Tuning
-M593 F50                            ; cancel ringing at 50Hz
+; M593 F50                            ; cancel ringing at 50Hz
 
 ; # Stall detection
 ; ## Stall Detection X/Y
@@ -103,13 +103,13 @@ M106 P3 S0                  ; Part Cooling to 0 speed
 ; ## Tool 2
 M950 F4 C"1.out6"           ; Hot End Fan on expansion out 6
 M106 P4 S1.0 H3 T40         ; Hot End Fan  Fan controls Heater 3, 100%, Shutoff at 40C
-M950 F5 C"1.out4"           ; Part Cooling Fan
+M950 F5 C"1.out3"           ; Part Cooling Fan
 M106 P5 S0                  ; Part Cooling to 0 speed
 
 ; ## Tool 3
 M950 F6 C"1.out7"           ; Hot End Fan on expansion out 7
 M106 P6 S1.0 H4 T40         ; Hot End Fan Fan controls Heater 4, 100%, Shutoff at 40C
-M950 F7 C"1.out5"           ; Part Cooling Fan
+M950 F7 C"1.out4"           ; Part Cooling Fan
 M106 P7 S0                  ; Part Cooling to 0 speed
 
 ; # Tools
