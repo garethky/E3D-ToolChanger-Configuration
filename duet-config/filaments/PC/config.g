@@ -1,6 +1,5 @@
-; set filament name and temprature "variables"
-M563 P5 S"PC"
-G10 P5 X275 Y300
+; set filament name and temperature "variables"
+G10 P{state.currentTool} A275 B300
 
 ; set retraction parameters
 M207 S0.4 F2100

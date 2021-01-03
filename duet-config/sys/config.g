@@ -30,7 +30,7 @@ M584 X0 Y1 Z2 C3 E4:5:1.1:1.2                       ; Apply custom axis to drive
 M350 X16 Y16 Z16 C16 E16:16:16:16 I1                ; Configure x16 microstepping with interpolation on all axes
 M906 X1100 Y1100 Z1330 C400 E900:900:900:900 I30    ; Set motor currents (mA) and motor idle factor in percent
 
-M208 X-35:328.5 Y-49:243 Z0:280 C0:500 S0           ; Set axis maxima & minima
+M208 X-35:328.5 Y-49:243 Z0:280 C0:500              ; Set axis maxima & minima
 M92  X100  Y100  Z1600 C200 E816:816:816:816        ; Set steps per mm
 
 ; # Endstops
@@ -129,18 +129,8 @@ M563 P3 S"T4" D3 H4 F7      ; Define tool 3
 G10 P3 X0 Y0 Z0             ; Reset tool 3 axis offsets
 G10 P3 R0 S0                ; Reset initial tool 3 active and standby temperatures to 0C
 
-;tool offsets
-; NOTE: Z-axis: making this number smaller (more negative) INCREASES the first layer height!
-;       If your baby step value is negative, you want to decrease first layer height, so make this value more positive.
-;       newValue = oldValue 
-; Note: X/Y Axes: These work backwards. If you are off off your reference nozzle
-G10 P0 X9.0 Y40.5 Z-5.150  ; T0
-G10 P1 X9.0 Y40.5 Z-5.150  ; T1
-G10 P2 X9.0 Y40.5 Z-5.150  ; T2
-G10 P3 X9.0 Y40.5 Z-5.150  ; T3
+; Load global variables
+M98 P"/sys/globals.g"
 
 ;deselect tools
 T-1
-
-; Load global variables
-M98 P"/sys/globals.g"

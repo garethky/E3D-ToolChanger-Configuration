@@ -1,13 +1,13 @@
 ; loadFilament.g
 
 ; ask the user if they really want to light up the heater and load some filament
-M291 S3 P{"Click OK to heat to " ^ tools[5].offsets[0] ^ "C and load " ^ tools[5].name} R{"Load " ^ tools[5].name ^ "?"}
+M291 S3 P{"Click OK to heat to " ^ tools[state.currentTool].offsets[4] ^ "C and load " ^ move.extruders[state.currentTool].filament} R{"Load " ^ move.extruders[state.currentTool].filament ^ "?"}
 
 ; Set current the configured temperature and wait for the extruder to reach temp
-M109 S{tools[5].offsets[0]}
+M109 S{tools[state.currentTool].offsets[4]}
 
 ; Pause and ask the user to position the filament for feeding
-M291 S2 P{"Load filament in the extruder and click OK to start loading " ^ tools[5].name} R{"Ready to Load " ^ tools[5].name} 
+M291 S2 P{"Load filament in the extruder and click OK to start loading " ^ move.extruders[state.currentTool].filament} R{"Ready to Load " ^ move.extruders[state.currentTool].filament} 
 
 M83 ; Extruder to relative mode
 
