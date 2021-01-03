@@ -12,3 +12,6 @@ M106 R2
 
 ;mesh leveling on
 G29 S1
+
+; Configure filament
+M703
