@@ -8,13 +8,13 @@ M98 P"/macros/Unlock Coupler"
 G1 Y150 F15000
 
 ;Move to location
-G1 X{tools[state.nextTool].offsets[7]} Y200 F15000
+G1 X{move.axes[state.currentTool].workplaceOffsets[1]} Y200 F15000
 
 ;Move in
-G1 X{tools[state.nextTool].offsets[7]} Y230 F15000
+G1 X{move.axes[state.currentTool].workplaceOffsets[1]} Y230 F15000
 
 ;Collect
-G1 X{tools[state.nextTool].offsets[7]} Y{tools[state.nextTool].offsets[8]} F2500
+G1 X{move.axes[state.currentTool].workplaceOffsets[1]} Y{move.axes[state.currentTool].workplaceOffsets[2]} F2500
 
 ;Close Coupler
 M98 P"/macros/Lock Coupler"
@@ -27,5 +27,5 @@ G1 Z10 F1000
 G90
 
 ;Move Out
-G1 X{tools[state.nextTool].offsets[7]} Y150 F5000
+G1 X{move.axes[state.currentTool].workplaceOffsets[1]} Y150 F5000
 

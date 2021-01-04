@@ -15,23 +15,25 @@ M84 S120                            ; Set idle timeout
 
 ; # Drive direction
 ; ## main board drivers
-M569 P0 S0 D3 V100                      ; Drive 0 X
-M569 P1 S0 D3 V100                      ; Drive 1 Y
+M569 P0 S0 D3 H5 V5                     ; Drive 0 X
+M569 P1 S0 D3 H5 V5                     ; Drive 1 Y
 M569 P2 S1 D3 V100                      ; Drive 2 Z
 M569 P3 S0                              ; Drive 3 C
-M569 P4 S0 D3 V100                      ; Drive 4 E0
-M569 P5 S1 D3 V100                      ; Drive 5 E1
+M569 P4 S0 D3 H5 V5                     ; Drive 4 E0
+M569 P5 S1 D3 H5 V5                     ; Drive 5 E1
 ; ## Tool board drivers
-M569 P1.0 S0                            ; Drive 6 (no used)
-M569 P1.1 S1 D3 V100                    ; Drive 7 E2
-M569 P1.2 S0 D3 V100                    ; Drive 8 E3
+M569 P1.1 S1 D3 H5 V5                   ; Drive 7 E2
+M569 P1.2 S0 D3 H5 V5                   ; Drive 8 E3
+M569 P1.0 S0                            ; Drive 6 (not used)
 
 M584 X0 Y1 Z2 C3 E4:5:1.1:1.2                       ; Apply custom axis to drive mapping
-M350 X256 Y256 Z16 C16 E16:16:16:16 I1                ; Configure x16 microstepping with interpolation on all axes
-M906 X1100 Y1100 Z1330 C400 E900:900:900:900 I30    ; Set motor currents (mA) and motor idle factor in percent
 
+; # Steps per mm & microstepping
+M350 X16 Y16 Z16 C16 E16:16:16:16 I1                ; Configure x16 microstepping with interpolation on all axes
+M92  X200  Y200  Z1600 C200 E816:816:816:816        ; Set steps per mm
+
+M906 X1100 Y1100 Z1330 C400 E900:900:900:900 I30    ; Set motor currents (mA) and motor idle factor in percent
 M208 X-35:328.5 Y-49:243 Z0:280 C0:500              ; Set axis maxima & minima
-M92  X1600  Y1600  Z1600 C200 E816:816:816:816      ; Set steps per mm
 
 ; # Endstops
 M574 X1 Y1 S3                       ; Set X / Y endstop stall detection
@@ -44,16 +46,17 @@ G31 P200 X5 Y-11 Z0                 ; Set Z probe trigger value and x/y offset
 M557 X5:295 Y0:195 P10:7            ; Set mesh bed leveling grid to 10x7
 
 ; # Speed, Acceleration & Jerk
-M203 X35000 Y35000 Z1200 C5000 E3600:3600:3600:3600    ; Set maximum speeds (mm/min) (support a max tool feed rate of 60mm/s)
+M203 X24000 Y24000 Z900 C5000 E3600:3600:3600:3600     ; Set maximum speeds (mm/min) (support a max tool feed rate of 60mm/s)
 M201 X6000  Y6000  Z600  C500  E5000:5000:5000:5000    ; Set maximum accelerations (mm/s^2).
-M566 X400   Y400   Z40   C2    E100:100:100:100        ; Set maximum instantaneous speed changes/Jerk (mm/min).
+M566 X300   Y300   Z40   C2    E100:100:100:100        ; Set maximum instantaneous speed changes/Jerk (mm/min).
 
 ; Movement Tuning
-; M593 F50                            ; cancel ringing at 50Hz
+M593 F250                            ; cancel ringing at 250Hz
 
 ; # Stall detection
 ; ## Stall Detection X/Y
-M915 X Y S1 F0 H280 R0
+;M915 P0:P1 S2 F0 H80 R0 T50764
+M915 P0:P1 S2 F0 R0 H70
 
 ; ## Stall Detection Coupler
 M915 C S6 F0 H200 R0                ; This still never stalls?
