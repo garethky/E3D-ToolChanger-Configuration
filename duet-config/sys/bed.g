@@ -12,4 +12,4 @@ G29     ; run mesh bed leveling
 ; disable mesh leveling, needs to be enabled at the start of your print and disabled again when finished.
 G29 S2
 
-G98 P"/macros/Park"
+M98 P"/macros/Park"
