@@ -1,28 +1,20 @@
 ; homex.g
 ; called to home the x axis
 
-M569 P0 D2               ; Spread Cycle On
-M569 P1 D2               ; Spread Cycle On
+; This axis can only be homes when Y is homes AND Y is at the correct position to hit the physical X switch
+; in the GUI, X is first, so if someone pushes that button they could crash the machine
+if !move.axes[1].homed
+    M98 P"homey.g"            ; Home Y
+
+; even if it was homed it might not be in the right location, so fix that
+; And even if it is homed, the machine may have just crashed so use H1 just in case
+G1 H1 Y-42.9  F2000 
+
 G91                      ; use relative positioning
 
-G1 H2 X0.5 Y0.5 F10000   ; energise
-
-M400                     ; make sure everything has stopped before we make changes
-
-M913 X90 Y90             ; drop motor currents to 45%
-
-G1 H1 X-400 F4500        ; move left 400mm, stopping at the endstop
-G1 H1 X2 F2000           ; move away from end
-G1 H1 X-400 F4500        ; repeat the homing move because it doesn't always work first time
-G1 H1 X20 F12000         ; move away from end
+G1 H1 X-400 F2000        ; move left 400mm, stopping at the endstop
+G1 X2 F2000              ; move away from end
+G1 H1 X-400 F200         ; repeat the homing move because it doesn't always work first time
+G1 X4 F2000              ; move away from end
 
 G90                      ; back to absolute positioning
-
-M400                     ; make sure everything has stopped before we reset the motor currents
-G4 P100                  ; wait 400ms
-
-M400
-M913 X100 Y100           ; motor currents back to 100%
-M569 P0 D3               ; Stealth Chop on
-M569 P1 D3               ; Stealth Chop on
-M400

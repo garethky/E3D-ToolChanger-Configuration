@@ -1,3 +1,6 @@
+; restore work offsets before writing over them;
+M501
+
 ;tool offsets
 ; NOTE: Z-axis: making this number smaller (more negative) INCREASES the first layer height!
 ;       If your baby step value is negative, you want to decrease first layer height, so make this value more positive.
@@ -15,15 +18,16 @@ G10 L2 P2 X-10.5 Y79.5 Z214.5 C304.5
 ; Tools Y Coordinates for tool change in P3
 G10 L2 P3 X239.8 Y239.8 Z239.8 C239.8
 
-; nozzel diameters in P4
-G10 L2 P3 X0.4 Y0.4 Z0.4 C0.4
+; P4 & P5 used to store filament temp and extrusion rate
 
-; P5 & P6 used to store filament temp and extrusion rate
+; P6 Is used to store the per-tool babystep value to enable saving of live-z adjustments made while a tool is in use
 
-; P7 - unused
+; P7: installed nozzel diameters
+G10 L2 P7 X0.4 Y0.4 Z0.4 C0.4
+
 ; P8 - unused
 
-; P9 is used as scratch space to save scripts from having lengthy tool # to axis mapping code
+; P9 is reserved as the program stack for setting variables with /macros/scripts/copy_var.g
 
 ; TODO: tool to store the bed configuration and make changing it in the UI possible
 ;M563 P8 S"Removable Print Surface"
