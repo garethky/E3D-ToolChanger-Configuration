@@ -4,8 +4,8 @@
 
 ; How To use:
 ;
-; G10 L2 P9 X{sate.CurrentTool} Y{value_to_store} Z{target_coordinate_system_index}
-; G98 P"/macro/scripts/copy_var.g"
+; G10 L2 P9 X{state.currentTool} Y{value_to_store} Z{target_coordinate_system_index}
+; M98 P"/macros/Filament/copy_var.g"
 ;
 ; Inputs:
 ;
@@ -14,12 +14,12 @@
 ; move.axes[2].workplaceOffsets[8] - the coordinate system number to store it in
 
 if move.axes[0].workplaceOffsets[8] == 0
-    G10 L2 P{move.axes[2].workplaceOffsets[8]} X{move.axes[1].workplaceOffsets[8]}
+    G10 L2 P{floor(move.axes[2].workplaceOffsets[8])} X{move.axes[1].workplaceOffsets[8]}
 elif move.axes[0].workplaceOffsets[8] == 1
-    G10 L2 P{move.axes[2].workplaceOffsets[8]} Y{move.axes[1].workplaceOffsets[8]}
+    G10 L2 P{floor(move.axes[2].workplaceOffsets[8])} Y{move.axes[1].workplaceOffsets[8]}
 elif move.axes[0].workplaceOffsets[8] == 2
-    G10 L2 P{move.axes[2].workplaceOffsets[8]} Z{move.axes[1].workplaceOffsets[8]}
+    G10 L2 P{floor(move.axes[2].workplaceOffsets[8])} Z{move.axes[1].workplaceOffsets[8]}
 elif move.axes[0].workplaceOffsets[8] == 3
-    G10 L2 P{move.axes[2].workplaceOffsets[8]} C{move.axes[1].workplaceOffsets[8]}
+    G10 L2 P{floor(move.axes[2].workplaceOffsets[8])} C{move.axes[1].workplaceOffsets[8]}
 else
 	abort   ; not taking any chances
