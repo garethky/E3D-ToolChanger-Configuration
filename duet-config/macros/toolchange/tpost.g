@@ -4,6 +4,9 @@
 ;heatup
 M116 P{state.currentTool}
 
+; restore babystepping
+M98 P"/macros/babystep/restore.g"
+
 ;prime nozzle
 ;M98 P"prime.g"
 
