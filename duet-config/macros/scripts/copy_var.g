@@ -4,8 +4,8 @@
 
 ; How To use:
 ;
-; G10 L2 P9 X{state.currentTool} Y{value_to_store} Z{target_coordinate_system_index}
-; M98 P"/macros/Filament/copy_var.g"
+;     G10 L2 P9 X{state.currentTool} Y{value_to_store} Z{target_coordinate_system_index}
+;     M98 P"/macros/Filament/copy_var.g"
 ;
 ; Inputs:
 ;
