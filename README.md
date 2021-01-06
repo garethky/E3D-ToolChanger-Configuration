@@ -9,27 +9,42 @@ The goal here is to enhance the ease of use of the machine so it becomes my favo
 # What Works
 
 ## globals.g
+
 The file `globals.g` is where all of the global variable assignment takes place. This is a single file to define the machines tool configuration. It stores things like tool parameters (position, size, z offset etc). The goal is to allow a tool swap or z tune by editing a single file. But beware hacks inside...
 
 
 ## "Prusa style" filament loading and unloading
+
 It will prompt you to heat up and has a loop to purge filament as required by the user. This is centralized in 2 macros so adding new filaments is quick and easy, requiring just a couple lines of GCode.
 
 ## [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Tool changes
+
 Tool changes use 3 macros and the data stored in globals.g to execute tool changes. No duplicate scripting is needed per-tool. globals.g drives the X and Y offsets of the tools in the dock.
 
+## "Adjust Live Z"
+
+The baby stepping value is saved per-tool. Every time a tool is put back in the dock the value is saved and every time. a tool it grabbed the value for that tool is loaded. The values are peristed with `M500` and loaded on startup with `M501`.
 
 # What Needs Work
 
-## Live Z tuning print
+## Live Z test print
 
 Be able to heat the tool based on the configured filament and then print (ideally based on nozzle diameter) a test pattern that allows the user to tune the live Z of the tool visually from the control panel.
-
 
 ## Inductive probing & mesh bed leveling of the magnetic bed
 
 I've filed an [issue](https://github.com/Duet3D/RepRapFirmware/issues/445) with Duet about this. It should be possible to offload the bed calculations to the SBC with a python script, similar to how [DuetLapse](https://github.com/DanalEstes/DuetLapse) works. Then the probing grid can be any set of points required by the bed geometry. The Python script would then generate the 
 
+## Configure Nozzle Size Per Tool
+
+Ideally swapping nozzles would be accomplished via the GUI and would execute user macros. Nozzle swap procedure would look like this:
+
+* Grab the tool
+* Heat the tool to the configured filament temp to soften the plastic
+* Let the user know when the tool is hot
+* User swaps the nozzle
+* Heat the tool head for hot tightenting
+* Ask the user if they want to run a Live Z calibration now
 
 ## Customizable Build Plate offsets
 
