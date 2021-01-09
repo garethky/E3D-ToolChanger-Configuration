@@ -17,7 +17,7 @@ G29 S2
 ; assume the head is holding a tool, but the tool location is not safe to translate in X
 
 ; 1) move the tool behind the safety line (in case its close to a dock for some reason!)
-G53 G1 Y150 F10500
+G53 G1 Y160 F10500
 
 ; 2) Move the head in X to align with the tool's dock
 G53 G1 X{move.axes[state.currentTool].workplaceOffsets[1]} F10500
@@ -43,4 +43,4 @@ G53 G1 Y{move.axes[state.currentTool].workplaceOffsets[2] - 12} F2400
 
 ; 7) move back to the safe distance with no tool mounted
 ;Move Out
-G53 G1 Y150 F10500
+G53 G1 Y200 F10500

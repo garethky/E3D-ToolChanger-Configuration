@@ -7,7 +7,7 @@
 M98 P"/macros/Unlock Coupler"
 
 ; Move to safe Y distance from Tool heads for the coupler
-G1 Y150 F10500
+G1 Y200 F10500
 
 ; Move to the X location of the tool to pick up
 G1 X{move.axes[state.nextTool].workplaceOffsets[1]} F10500
@@ -32,5 +32,5 @@ G90
 G1 Y{move.axes[state.nextTool].workplaceOffsets[2] - 27} F4800
 
 ; move the tool out to the safe distance line
-G1 Y150 F10500
+G1 Y160 F10500
 
