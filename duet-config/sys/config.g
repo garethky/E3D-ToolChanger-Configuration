@@ -1,54 +1,65 @@
 ; Configuration; Configuration file for Duet 3 with Raspberry Pi + 3HC tool board
 ; executed by the firmware on start-up
 
-; # Panel Duet Enable (soon to be useless with the Pi)
-M575 P1 S1 B57600
-
 ; # General preferences
 M111 S0                             ; Debugging off
-G21                                 ; Work in millimetres
+G21                                 ; Work in millimeters
 G90                                 ; Send absolute coordinates...
 M83                                 ; ...but relative extruder moves
 M555 P2                             ; Set firmware compatibility to look like Marlin
 M667 S1                             ; Select CoreXY mode
 M84 S120                            ; Set idle timeout
 
-; # Drive direction
+; #######################
+; # Drives & Axes
+
 ; ## main board drivers
-M569 P0 S0 D3 H35 V35                   ; Drive 0 X, 35 here equates to ~100mm/s
-M569 P1 S0 D3 H35 V35                   ; Drive 1 Y
-M569 P2 S1 D3 V100                      ; Drive 2 Z
-M569 P3 S0                              ; Drive 3 C
-M569 P4 S0 D3 H5 V5                     ; Drive 4 E0
-M569 P5 S1 D3 H5 V5                     ; Drive 5 E1
+M569 P0   S0 D2 H35 V35                 ; Drive 0 X, 35 here equates to ~100mm/s
+M569 P1   S0 D3 H35 V35                 ; Drive 1 Y
+M569 P2   S1 D2 V100                    ; Drive 2 Z
+M569 P3   S0                            ; Drive 3 C
+M569 P4   S0 D2 H5 V5                   ; Drive 4 E0
+M569 P5   S1 D2 H5 V5                   ; Drive 5 E1
 ; ## Tool board drivers
-M569 P1.1 S1 D3 H5 V5                   ; Drive 7 E2
-M569 P1.2 S0 D3 H5 V5                   ; Drive 8 E3
+M569 P1.1 S1 D2 H5 V5                   ; Drive 7 E2
+M569 P1.2 S0 D2 H5 V5                   ; Drive 8 E3
 M569 P1.0 S0                            ; Drive 6 (not used)
 
-M584 X0 Y1 Z2 C3 E4:5:1.1:1.2                       ; Apply custom axis to drive mapping
+; Create machine axes and assign drives to them
+M584 X0 Y1 Z2 C3 E4:5:1.1:1.2                       
 
-; # Microstepping
-M350 X16 Y16 Z16 C16 E16:16:16:16 I1                ; Configure x16 microstepping with interpolation on all axes
+; Set axis maxima & minima
+M208 X-32.9:328.5 Y-47.1:255 Z0:280 C0:500          
+
+; ############################
+; Machine Movement Parameters
+
+; Microstepping
+M350 X16 Y16 Z16 C16 E16:16:16:16 I1     ; Configure x16 microstepping with interpolation on all axes
 
 ; Steps per MM (computed from microstepping)
-; M92  X200  Y200  Z1600 C200 E816:816:816:816        ; Set steps per mm
-; steps per mm for extruders the primary axes
 M92 X{12.5 * move.axes[0].microstepping.value} Y{12.5 * move.axes[1].microstepping.value} Z{100 * move.axes[2].microstepping.value}
-; steps per mm for extruders the coupler
 M92 C{12.5 * move.axes[3].microstepping.value}
-; Extruder steps per mm
-; TODO the syntax here doesnt work correctly
-; M92 E{51 * move.extruders[0].microstepping.value}:{51 * move.extruders[1].microstepping.value}:{51 * move.extruders[2].microstepping.value}:{51 * move.extruders[3].microstepping.value}
-M92 E816:816:816:816
+M92 E816:816:816:816   ;TODO: I don't know the correct expression syntax for this
 
-M906 X1300 Y1300 Z1330 C400 E900:900:900:900 I30    ; Set motor currents (mA) and motor idle factor in percent
-; # Enabled Stall Guard™️ and Cool Step™️ in the Trinamic stepper drivers
+; Set motor currents (mA) and motor idle factor in percent
+M906 X1300 Y1300 Z1330 C400 E900:900:900:900 I30 
+
+; Enabled Stall Guard™️ and Cool Step™️ in the Trinamic stepper drivers
 M915 P0:P1 S10 F0 H80 R0 T50764
 
-M208 X-32.9:328.5 Y-47.1:255 Z0:280 C0:500          ; Set axis maxima & minima
+; Speed, Acceleration & Jerk
+M203 X{400 * 60} Y{400 * 60} Z{8 * 60}   C{83.3 * 60} E3600:3600:3600:3600    ; Max speeds (mm/min)
+M201 X2000       Y2000       Z60         C500         E1000:1000:1000:1000    ; Max accelerations (mm/s^2)
+M566 X{5 * 60}   Y{5 * 60}   Z{0.6 * 60} C{0.6 * 60}  E300:300:300:300       ; Max instantaneous speed changes/Jerk (mm/min)
 
-; # Endstops
+; cancel ringing at 50Hz
+M593 F50
+
+; #######################
+; # Homing Configuration
+
+; ## Endstops
 M574 X1 S1 P"io1.in"                ; Set X / Y endstop switches
 M574 Y1 S1 P"io0.in"
 M574 Z0                             ; No Z endstop
@@ -59,17 +70,10 @@ M558 P8 C"io3.in" H2 F250 I0 T20000 ; Set Z probe type to switch, the axes for w
 G31 P200 X5 Y-11 Z0                 ; Set Z probe trigger value and x/y offset
 M557 X5:295 Y0:195 P10:7            ; Set mesh bed leveling grid to 10x7
 
-; # Speed, Acceleration & Jerk
-M203 X24000 Y24000 Z900  C5000 E3600:3600:3600:3600    ; Set maximum speeds (mm/min) (support a max tool feed rate of 60mm/s)
-M201 X6000  Y6000  Z600  C500  E5000:5000:5000:5000    ; Set maximum accelerations (mm/s^2).
-M566 X300   Y300   Z40   C2    E100:100:100:100        ; Set maximum instantaneous speed changes/Jerk (mm/min).
-
-; Movement Tuning
-M593 F250                            ; cancel ringing at 250Hz
-
 ; ## Stall Detection Coupler
 M915 C S6 F0 H200 R0                ; This still never stalls?
 
+; #######################
 ; # Heaters
 
 ; ## Bed Heater
