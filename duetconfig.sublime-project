@@ -4,5 +4,12 @@
         {
             "path": "."
         }
+    ],
+    "build_systems":
+    [
+        {
+            "name": "Deploy To Duet",
+            "shell_cmd": "rsync -iahp --exclude=\".*\" /Users/gareth/Documents/GitHub/E3D-ToolChanger-Configuration/duet-config/ /Volumes/Duet3SD/"
+        }
     ]
 }
