@@ -79,7 +79,7 @@ M915 C S6 F0 H200 R0                ; This still never stalls?
 ; ## Bed Heater
 M308 S0 P"temp0" Y"thermistor" A"Bed Heater Temp" T100000 B4138 C0   ; Thermistor underneath the heating pad (controls bed heater)
 M308 S5 P"temp3" Y"thermistor" A"Top Bed Temp" T100000 B4138 C0      ; Thermistor on top of the bed (monitors temp at the printing surface)
-M950 H0 C"out0" T0                                  ; Bed heater
+M950 H0 C"out0" T0 Q60                              ; Bed heater
 M143 H0 S150                                        ; Set temperature limit for heater 0 to 150C
 M140 H0                                             ; Bed heater is heater 0, set temp to 0.
 
