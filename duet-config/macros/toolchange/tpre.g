@@ -6,11 +6,12 @@
 ; Double check that the couper is unlocked
 M98 P"/macros/Unlock Coupler"
 
-; Move to safe Y distance from Tool heads for the coupler
-G1 Y200 F10500
+; If the toolead is across the safety line, move back back behind the safety line
+if move.axes[1].machinePosition > 200
+    G53 G1 Y200 F10500
 
-; Move to the X location of the tool to pick up
-G1 X{move.axes[state.nextTool].workplaceOffsets[1]} F10500
+; Move to the X & Y location of the tool to pick up at the safety line
+G1 X{move.axes[state.nextTool].workplaceOffsets[1]} Y200 F10500
 
 ; Move to within the length of the coupler which is tool position - 12mm
 G1 Y{move.axes[state.nextTool].workplaceOffsets[2] - 12} Y230 F10500
