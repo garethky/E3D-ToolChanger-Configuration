@@ -43,15 +43,15 @@ M92 C{12.5 * move.axes[3].microstepping.value}
 M92 E816:816:816:816   ;TODO: I don't know the correct expression syntax for this
 
 ; Set motor currents (mA) and motor idle factor in percent
-M906 X1300 Y1300 Z1330 C400 E900:900:900:900 I30 
+M906 X1300 Y1300 Z1330 C400 E800:800:800:800 I30 
 
 ; Enabled Stall Guard™️ and Cool Step™️ in the Trinamic stepper drivers
 M915 P0:P1 S10 F0 H80 R0 T50764
 
 ; Speed, Acceleration & Jerk
 M203 X{400 * 60} Y{400 * 60} Z{8 * 60}   C{83.3 * 60} E3600:3600:3600:3600    ; Max speeds (mm/min)
-M201 X2000       Y2000       Z60         C500         E1000:1000:1000:1000    ; Max accelerations (mm/s^2)
-M566 X{5 * 60}   Y{5 * 60}   Z{0.6 * 60} C{0.6 * 60}  E300:300:300:300       ; Max instantaneous speed changes/Jerk (mm/min)
+M201 X2000       Y2000       Z80         C500         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
+M566 X{5 * 60}   Y{5 * 60}   Z{0.8 * 60} C{0.6 * 60}  E600:600:600:600        ; Max instantaneous speed changes/Jerk (mm/min)
 
 ; cancel ringing at 50Hz
 M593 F50
@@ -107,25 +107,25 @@ M143 H4 S350                                                        ; Set temper
 ; ## Tool 0
 M950 F0 C"out7"             ; Hot End Fan on out7
 M106 P0 S1.0 H1 T40         ; Hot End Fan controls Heater 1, 100%, Shutoff at 40C
-M950 F1 C"out4"             ; Part Cooling Fan
+M950 F1 C"out4" Q10          ; Part Cooling Fan
 M106 P1 S0                  ; Part Cooling to 0 speed
 
 ; ## Tool 1
 M950 F2 C"out8"             ; Hot End Fan on out8
 M106 P2 S1.0 H2 T40         ; Hot End Fan controls Heater 2, 100%, Shutoff at 40C
-M950 F3 C"out5"             ; Part Cooling Fan
+M950 F3 C"out5" Q10         ; Part Cooling Fan
 M106 P3 S0                  ; Part Cooling to 0 speed
 
 ; ## Tool 2
 M950 F4 C"1.out6"           ; Hot End Fan on expansion out 6
 M106 P4 S1.0 H3 T40         ; Hot End Fan  Fan controls Heater 3, 100%, Shutoff at 40C
-M950 F5 C"1.out3"           ; Part Cooling Fan
+M950 F5 C"1.out3" Q10       ; Part Cooling Fan
 M106 P5 S0                  ; Part Cooling to 0 speed
 
 ; ## Tool 3
 M950 F6 C"1.out7"           ; Hot End Fan on expansion out 7
 M106 P6 S1.0 H4 T40         ; Hot End Fan Fan controls Heater 4, 100%, Shutoff at 40C
-M950 F7 C"1.out4"           ; Part Cooling Fan
+M950 F7 C"1.out4" Q10       ; Part Cooling Fan
 M106 P7 S0                  ; Part Cooling to 0 speed
 
 ; # Tools
