@@ -43,7 +43,7 @@ M92 C{12.5 * move.axes[3].microstepping.value}
 M92 E816:816:816:816   ;TODO: I don't know the correct expression syntax for this
 
 ; Set motor currents (mA) and motor idle factor in percent
-M906 X1300 Y1300 Z1330 C400 E800:800:800:800 I30 
+M906 X1300 Y1300 Z1330 C400 E700:700:700:700 I30 
 
 ; Enabled Stall Guard™️ and Cool Step™️ in the Trinamic stepper drivers
 M915 P0:P1 S10 F0 H80 R0 T50764
