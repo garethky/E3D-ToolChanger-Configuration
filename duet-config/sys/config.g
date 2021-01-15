@@ -14,10 +14,10 @@ M84 S120                            ; Set idle timeout
 ; # Drives & Axes
 
 ; ## main board drivers
-M569 P0   S0 D2 H35 V35                 ; Drive 0 X, 35 here equates to ~100mm/s
-M569 P1   S0 D3 H35 V35                 ; Drive 1 Y
+M569 P0   S1 D3 F3 H35 V35              ; Drive 0 X, 35 here equates to ~100mm/s
+M569 P1   S0 D3 F3 H35 V35              ; Drive 1 Y
 M569 P2   S1 D2 V100                    ; Drive 2 Z
-M569 P3   S0                            ; Drive 3 C
+M569 P3   S0 D2                         ; Drive 3 C
 M569 P4   S0 D2 H5 V5                   ; Drive 4 E0
 M569 P5   S1 D2 H5 V5                   ; Drive 5 E1
 ; ## Tool board drivers
@@ -43,15 +43,15 @@ M92 C{12.5 * move.axes[3].microstepping.value}
 M92 E816:816:816:816   ;TODO: I don't know the correct expression syntax for this
 
 ; Set motor currents (mA) and motor idle factor in percent
-M906 X1300 Y1300 Z1330 C400 E700:700:700:700 I30 
+M906 X1000 Y1000 Z1330 C400 E700:700:700:700 I30 
 
 ; Enabled Stall Guard™️ and Cool Step™️ in the Trinamic stepper drivers
 M915 P0:P1 S10 F0 H80 R0 T50764
 
 ; Speed, Acceleration & Jerk
-M203 X{400 * 60} Y{400 * 60} Z{8 * 60}   C{83.3 * 60} E3600:3600:3600:3600    ; Max speeds (mm/min)
-M201 X2000       Y2000       Z80         C500         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
-M566 X{5 * 60}   Y{5 * 60}   Z{0.8 * 60} C{0.6 * 60}  E600:600:600:600        ; Max instantaneous speed changes/Jerk (mm/min)
+M203 X{600 * 60} Y{600 * 60} Z{10 * 60}   C{83.3 * 60} E3600:3600:3600:3600    ; Max speeds (mm/min)
+M201 X3000       Y3000       Z{4 *60}   C500         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
+M566 X{10 * 60}   Y{10 * 60}   Z{2 * 60} C{0.6 * 60}  E600:600:600:600        ; Max instantaneous speed changes/Jerk (mm/min)
 
 ; cancel ringing at 50Hz
 M593 F50
@@ -84,19 +84,19 @@ M143 H0 S150                                        ; Set temperature limit for 
 M140 H0                                             ; Bed heater is heater 0, set temp to 0.
 
 ; ## Tool Heaters
-M308 S1 P"temp1" Y"thermistor" A"T1 Temp" T500000 B4723 C1.196220e-7 R4700     ; Slice Engineering Thermistor for T0
+M308 S1 P"temp1" Y"thermistor" A"T1 Temp" R4700 T100000 B4388       ; E3D thermistor for T1
 M950 H1 C"out1" T1                                                  ; Bind heater 1 to out1 pin and sensor 1
 M143 H1 S350                                                        ; Set temperature limit for heater 1 to 350C
 
-M308 S2 P"temp2" Y"thermistor" A"T2 Temp" T500000 B4723 C1.196220e-7 R4700     ; Slice Engineering Thermistor for T1
+M308 S2 P"temp2" Y"thermistor" A"T2 Temp" T500000 B4723 C1.196220e-7 R4700     ; Slice Engineering Thermistor for T2
 M950 H2 C"out2" T2                                                  ; Bind heater 2 to out2 pin and sensor 2
 M143 H2 S350                                                        ; Set temperature limit for heater 2 to 350C
 
-M308 S3 P"1.temp0" Y"thermistor" A"T3 Temp" R4700 T100000 B4388     ; E3D thermistor for T2
+M308 S3 P"1.temp0" Y"thermistor" A"T3 Temp" R4700 T100000 B4388     ; E3D thermistor for T3
 M950 H3 C"1.out0" T3                                                ; Bind heater 3 to 1.out0 pin and sensor 3
 M143 H3 S350                                                        ; Set temperature limit for heater 3 to 350C
 
-M308 S4 P"1.temp1" Y"thermistor" A"T4 Temp" R4700 T100000 B4388     ; E3D thermistor for T3
+M308 S4 P"1.temp1" Y"thermistor" A"T4 Temp" R4700 T100000 B4388     ; E3D thermistor for T4
 M950 H4 C"1.out1" T4                                                ; Bind heater 4 to 1.out1 pin and sensor 4
 M143 H4 S350                                                        ; Set temperature limit for heater 4 to 350C
 
@@ -107,7 +107,7 @@ M143 H4 S350                                                        ; Set temper
 ; ## Tool 0
 M950 F0 C"out7"             ; Hot End Fan on out7
 M106 P0 S1.0 H1 T40         ; Hot End Fan controls Heater 1, 100%, Shutoff at 40C
-M950 F1 C"out4" Q10          ; Part Cooling Fan
+M950 F1 C"out4" Q10         ; Part Cooling Fan
 M106 P1 S0                  ; Part Cooling to 0 speed
 
 ; ## Tool 1
