@@ -16,7 +16,7 @@ M84 S120                            ; Set idle timeout
 ; ## main board drivers
 M569 P0   S1 D3 F3 H35 V35              ; Drive 0 X, 35 here equates to ~100mm/s
 M569 P1   S0 D3 F3 H35 V35              ; Drive 1 Y
-M569 P2   S1 D2 V100                    ; Drive 2 Z
+M569 P2   S1 D3 V100                    ; Drive 2 Z
 M569 P3   S0 D2                         ; Drive 3 C
 M569 P4   S0 D2 H5 V5                   ; Drive 4 E0
 M569 P5   S1 D2 H5 V5                   ; Drive 5 E1
@@ -43,15 +43,15 @@ M92 C{12.5 * move.axes[3].microstepping.value}
 M92 E816:816:816:816   ;TODO: I don't know the correct expression syntax for this
 
 ; Set motor currents (mA) and motor idle factor in percent
-M906 X1000 Y1000 Z1330 C400 E700:700:700:700 I30 
+M906 X1200 Y1200 Z1330 C400 E700:700:700:700 I30 
 
 ; Enabled Stall Guard™️ and Cool Step™️ in the Trinamic stepper drivers
 M915 P0:P1 S10 F0 H80 R0 T50764
 
 ; Speed, Acceleration & Jerk
-M203 X{600 * 60} Y{600 * 60} Z{10 * 60}   C{83.3 * 60} E3600:3600:3600:3600    ; Max speeds (mm/min)
-M201 X3000       Y3000       Z{4 *60}   C500         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
-M566 X{10 * 60}   Y{10 * 60}   Z{2 * 60} C{0.6 * 60}  E600:600:600:600        ; Max instantaneous speed changes/Jerk (mm/min)
+M203 X{600 * 60} Y{600 * 60} Z{10 * 60} C{83.3 * 60} E3600:3600:3600:3600    ; Max speeds (mm/min)
+M201 X3000       Y3000       Z240       C500         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
+M566 X{10 * 60}  Y{10 * 60}  Z{2 * 60}  C{0.6 * 60}  E600:600:600:600        ; Max instantaneous speed changes/Jerk (mm/min)
 
 ; cancel ringing at 50Hz
 M593 F50
@@ -66,9 +66,9 @@ M574 Z0                             ; No Z endstop
 M574 C1 S3                          ; Stall detect coupler at low end of its range
 
 ; ## Z-axis homing switch
-M558 P8 C"io3.in" H2 F250 I0 T20000 ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
+M558 P8 C"io4.in" I0 A3 H0.5 F250 T{150 * 60} ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
 G31 P200 X5 Y-11 Z0                 ; Set Z probe trigger value and x/y offset
-M557 X5:295 Y0:195 P10:7            ; Set mesh bed leveling grid to 10x7
+M557 0:300 Y-5:200  P25:17          ; Set mesh bed leveling grid
 
 ; ## Stall Detection Coupler
 M915 C S6 F0 H200 R0                ; This still never stalls?
