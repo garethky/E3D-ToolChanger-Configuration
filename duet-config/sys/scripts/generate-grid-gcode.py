@@ -1,6 +1,6 @@
 # This script produces the G-Code lines that go into the macro to probe the bed
 # it contains the minimum number of X/Y coordinate definitions to expand into the final probing points
-# * X coordinates are reflected about the middle of the bed
+# * X coordinates are reflected about the middle of the bed by the script
 # * Y coordinates are used to repeat the same X-coordinate passes without having to re-specify the X-coordinates
 # * Alternating lines of points have their X coordinates reversed to minimize travel moves
 # * The order of the input lines does not matter, they get sorted by the Y coordinate from least to greatest
@@ -8,7 +8,7 @@
 
 import collections
 
-# this is the X coordinate where reflection of the lines happen
+# this is the X coordinate where reflection of the lines happen, values less than this value are reflected
 reflectionLine = 150
 
 # format is ([X, X, X, X], [Y, Y, Y])
@@ -16,17 +16,13 @@ reflectionLine = 150
 # Each Y value is the Y coordinate of a probing row where all of these X points will be sampled
 
 rowDeffinitions = [
-    # row 1 is unique
-    ([20.48528, 51.80664, 83.12800, 116.56400, 150.00000], [-13]),
+    ([32.35319, 67.03081, 99.22519, 133.90281], [-11.00000]),
 
-    # row 2 repeats 3 times
-    ([36.25600, 63.12800, 103.12800, 130.00000], [8.12800, 95.93600, 183.74400]),
+    ([49.69200, 116.56400], [8.12800, 95.93600, 183.74400]),
 
-    # row 4 repeats 6 times
-    ([10.00000, 49.69200, 83.12800, 116.564, 150.00000], [28.12800, 52.03200, 75.93600, 115.93600, 139.84000, 163.74400]),
+    ([4.00000, 33.12800, 49.69200, 83.12800, 116.56400, 150.00000], [33.12800, 70.93600, 120.93600, 158.74400]),
 
-    # row 4 is unique
-    ([10.00000, 43.56400, 83.12800, 116.56400, 150.00000], [205.00000])
+    ([32.200, 67.18415, 99.07185], [203.00000])
 ]
 
 # Step 1 is to extend the X arrays by reflecting them about the reflectionLine

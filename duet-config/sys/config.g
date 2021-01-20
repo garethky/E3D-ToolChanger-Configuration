@@ -66,8 +66,8 @@ M574 Z0                             ; No Z endstop
 M574 C1 S3                          ; Stall detect coupler at low end of its range
 
 ; ## Z-axis homing switch
-M558 P8 C"io4.in" I0 A2 S0.003 H1 F300 T{150 * 60} ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
-G31 P200 X0 Y-12 Z0                  ; Set Z probe trigger value and x/y offset
+M558 P8 C"io4.in" I0 A2 S0.003 H1 F200 T{200 * 60} ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
+G31 P200 X0 Y-12 Z0                 ; Set Z probe trigger value and x/y offset
 M557 X-12:300 Y0:200  P25:17        ; Set mesh bed leveling grid
 
 ; ## Stall Detection Coupler

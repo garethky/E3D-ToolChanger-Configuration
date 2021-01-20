@@ -2,14 +2,10 @@
 
 ; Home Z
 ; TODO: conditionally home Z only if not already homed
-G28 Z
+if move.axes[2].homed == false
+    G28 Z
 
-G1 H2 Z2 F5000        ; lift Z 3mm
-
-G29 S2  ; clear height map
-G29     ; run mesh bed leveling   
-
-; disable mesh leveling, needs to be enabled at the start of your print and disabled again when finished.
-G29 S2
+; run the custom mesh-bed-leveling macro
+M98 P"/macros/mesh-bed-leveling/mesh-bed-probe.g"
 
 M98 P"/macros/Park"

@@ -24,8 +24,8 @@ parser.add_argument('-l',
                        required=True,
                        help='the path to points file')
 
-parser.add_argument('-m',
-                       '--mesh-file',
+parser.add_argument('-c',
+                       '--heightmap-file',
                        metavar='MESH_FILE',
                        type=str,
                        default='heightmap.csv',
@@ -92,7 +92,7 @@ def parseProbedPoints() -> {}:
 
             probedPoints[xyCoordinate].append(zOffset)
             continue
-    
+    print(probedPoints)
     return probedPoints
 
 def averageZOffset(probedPoints):
@@ -122,7 +122,7 @@ def upsampleBedMesh(averagedPoints):
 
 def writeHeightmap(upsampledBedMesh):
     # open the bed sample file and read all lines
-    meshFile = open(parsedArgs.mesh_file, 'w')
+    meshFile = open(parsedArgs.heightmap_file, 'w')
 
     # the header is necessary to convince RRF that we know what we are doing
     meshFile.write('RepRapFirmware height map file v2 generated at 2021-01-16 16:48\n')  #TODO: insert exact time
