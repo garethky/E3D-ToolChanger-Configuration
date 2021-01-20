@@ -63,7 +63,7 @@ xPoints, yPoints = [int(val) for val in parsedArgs.num_points.split(':')]
 
 
 # Matches: Bed probe location: X:20.485, Y:-13
-probePointPattern = re.compile('Bed probe location: X:(-?\\d*\\.?\\d*), Y:(-?\\d*\\.?\\d*)')
+probePointPattern = re.compile('Bed probe location: X:(-?\\d*\\.?\\d*) Y:(-?\\d*\\.?\\d*)')
 # Matches: Stopped at height -0.802
 probeResultsPattern = re.compile('Stopped at height (-?\\d*\\.?\\d*)')
 def parseProbedPoints() -> {}:
@@ -73,7 +73,7 @@ def parseProbedPoints() -> {}:
     bedFile.close()
 
     probedPoints = {}
-    xyCoordinate = (0, 0)
+    xyCoordinate = None
 
     for line in lines:
         match = probePointPattern.search(line)
@@ -83,7 +83,7 @@ def parseProbedPoints() -> {}:
             continue
 
         match = probeResultsPattern.search(line)
-        if match != None:
+        if match != None and xyCoordinate != None:
             captured = match.groups()
             zOffset = float(captured[0])
 
@@ -92,7 +92,7 @@ def parseProbedPoints() -> {}:
 
             probedPoints[xyCoordinate].append(zOffset)
             continue
-
+    
     return probedPoints
 
 def averageZOffset(probedPoints):
