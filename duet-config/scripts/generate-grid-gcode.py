@@ -8,12 +8,6 @@
 
 import collections
 
-xProbeOffset = 0
-yProbeOffset = -12
-probeTravelSpeed = str(round(150 * 60))
-probeDiveSpeed = str(round(4.2 * 60))
-probeDiveHeight = "1"
-
 # this is the X coordinate where reflection of the lines happen
 reflectionLine = 150
 
@@ -26,10 +20,10 @@ rowDeffinitions = [
     ([20.48528, 51.80664, 83.12800, 116.56400, 150.00000], [-13]),
 
     # row 2 repeats 3 times
-    ([36.25600, 63.12800, 103.12800, 130.00000], [8.12800, 95.93600, 183.74400]),
+#    ([36.25600, 63.12800, 103.12800, 130.00000], [8.12800, 95.93600, 183.74400]),
 
     # row 4 repeats 6 times
-    ([10.00000, 49.69200, 83.12800, 116.564, 150.00000], [28.12800, 52.03200, 75.93600, 115.93600, 139.84000, 163.74400]),
+#    ([10.00000, 49.69200, 83.12800, 116.564, 150.00000], [28.12800, 52.03200, 75.93600, 115.93600, 139.84000, 163.74400]),
 
     # row 4 is unique
     ([10.00000, 43.56400, 83.12800, 116.56400, 150.00000], [205.00000])
@@ -66,14 +60,10 @@ def printGCode(probingRows):
         yStr = str(round(y, 3))
         for x in xValuesOrdered:
             xStr = str(round(x, 3))
-            xOffsetStr = str(round(x - xProbeOffset, 3))
-            yOffsetStr = str(round(y - yProbeOffset, 3))
-            print('M118 L1 S"Bed probe location: X:{} Y:{}"'.format(xStr, yStr))
-            print('G1 X{} Y{} F{}'.format(xOffsetStr, yOffsetStr, probeTravelSpeed))
-            # probe twice
-            for i in range(0, 2):
-            	print('G30 S-1')
-            	print('G1 Z{} F{}'.format(probeDiveHeight, probeDiveSpeed))
+            
+            
+            print('G1 X{{{} - sensors.probes[0].offsets[0]}} Y{{{} - sensors.probes[0].offsets[1]}} F{{sensors.probes[0].travelSpeed * 60}}'.format(xStr, yStr))
+            print('M98 P"/macros/mesh-bed-leveling/probe-point.g"')
             
 
 reflectX()
