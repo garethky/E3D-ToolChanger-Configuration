@@ -26,10 +26,7 @@ M569 P1.2 S0 D2 H5 V5                   ; Drive 8 E3
 M569 P1.0 S0                            ; Drive 6 (not used)
 
 ; Create machine axes and assign drives to them
-M584 X0 Y1 Z2 C3 E4:5:1.1:1.2                       
-
-; Set axis maxima & minima
-M208 X-32.9:328.5 Y-47.1:255 Z0:280 C0:500          
+M584 X0 Y1 Z2 C3 E4:5:1.1:1.2      
 
 ; ############################
 ; Machine Movement Parameters

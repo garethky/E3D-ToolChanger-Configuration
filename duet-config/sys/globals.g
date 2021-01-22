@@ -1,22 +1,25 @@
 ; restore work offsets before writing over them
 M501
 
+; Set axis maxima & minima, this defines where 0,0 is relative to the homing point
+M208 X-30.9:330.5 Y-45.1:257 Z0:280 C0:500
+
 ; Tool Offsets
 ; NOTE: Z-axis: making this number smaller (more negative) INCREASES the first layer height!
 ;       If your baby step value is negative, you want to decrease first layer height, so make this value more positive.
 ; Note: X/Y Axes: These work backwards
-G10 P0 X9.0 Y40.5 Z-5.150  ; T1
-G10 P1 X9.0 Y40.5 Z-5.150  ; T2
-G10 P2 X9.0 Y40.5 Z-5.150  ; T3
-G10 P3 X9.0 Y40.5 Z-5.150  ; T4
+G10 P0 X5.0 Y41.5 Z-3.65 ; T1
+G10 P1 X5.0 Y41.5 Z-3.65 ; T2
+G10 P2 X5.0 Y41.5 Z-3.65 ; T3
+G10 P3 X5.0 Y41.5 Z-3.65 ; T4
 
 ; Store per-tool configuration in work coordinate systems
 ; tools map to an axis, X = Tool 1, Y = Tool 2 etc.
 
 ; Tool's X Machine Coordinates for tool change in P2
-G10 L2 P2 X-10.5 Y79.5  Z214.5 C304.5
+G10 L2 P2 X-8.5 Y81.5  Z216.5 C306.5
 ; Tool's Y Machine Coordinates for tool change in P3
-G10 L2 P3 X239.8 Y239.8 Z239.8 C239.8
+G10 L2 P3 X240.65 Y240.65 Z240.65 C240.65
 
 ; P4 & P5 used to store filament related variables that are related to the active tool
 ; P4
