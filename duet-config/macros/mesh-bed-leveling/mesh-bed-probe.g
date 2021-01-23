@@ -35,7 +35,7 @@ M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{49.692 - sensors.probes[0].offsets[0]} Y{8.128 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 ; Probing row #3, Direction: ->
-G1 X{4.0 - sensors.probes[0].offsets[0]} Y{33.128 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
+G1 X{5.828 - sensors.probes[0].offsets[0]} Y{33.128 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{33.128 - sensors.probes[0].offsets[0]} Y{33.128 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
@@ -55,10 +55,10 @@ G1 X{250.308 - sensors.probes[0].offsets[0]} Y{33.128 - sensors.probes[0].offset
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{266.872 - sensors.probes[0].offsets[0]} Y{33.128 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
-G1 X{296.0 - sensors.probes[0].offsets[0]} Y{33.128 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
+G1 X{294.172 - sensors.probes[0].offsets[0]} Y{33.128 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 ; Probing row #4, Direction: <-
-G1 X{296.0 - sensors.probes[0].offsets[0]} Y{70.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
+G1 X{294.172 - sensors.probes[0].offsets[0]} Y{70.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{266.872 - sensors.probes[0].offsets[0]} Y{70.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
@@ -78,7 +78,7 @@ G1 X{49.692 - sensors.probes[0].offsets[0]} Y{70.936 - sensors.probes[0].offsets
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{33.128 - sensors.probes[0].offsets[0]} Y{70.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
-G1 X{4.0 - sensors.probes[0].offsets[0]} Y{70.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
+G1 X{5.828 - sensors.probes[0].offsets[0]} Y{70.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 ; Probing row #5, Direction: ->
 G1 X{49.692 - sensors.probes[0].offsets[0]} Y{95.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
@@ -90,7 +90,7 @@ M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{250.308 - sensors.probes[0].offsets[0]} Y{95.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 ; Probing row #6, Direction: <-
-G1 X{296.0 - sensors.probes[0].offsets[0]} Y{120.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
+G1 X{294.172 - sensors.probes[0].offsets[0]} Y{120.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{266.872 - sensors.probes[0].offsets[0]} Y{120.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
@@ -110,10 +110,10 @@ G1 X{49.692 - sensors.probes[0].offsets[0]} Y{120.936 - sensors.probes[0].offset
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{33.128 - sensors.probes[0].offsets[0]} Y{120.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
-G1 X{4.0 - sensors.probes[0].offsets[0]} Y{120.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
+G1 X{5.828 - sensors.probes[0].offsets[0]} Y{120.936 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 ; Probing row #7, Direction: ->
-G1 X{4.0 - sensors.probes[0].offsets[0]} Y{158.744 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
+G1 X{5.828 - sensors.probes[0].offsets[0]} Y{158.744 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{33.128 - sensors.probes[0].offsets[0]} Y{158.744 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
@@ -133,7 +133,7 @@ G1 X{250.308 - sensors.probes[0].offsets[0]} Y{158.744 - sensors.probes[0].offse
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 G1 X{266.872 - sensors.probes[0].offsets[0]} Y{158.744 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
-G1 X{296.0 - sensors.probes[0].offsets[0]} Y{158.744 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
+G1 X{294.172 - sensors.probes[0].offsets[0]} Y{158.744 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
 M98 P"/macros/mesh-bed-leveling/probe-point.g"
 ; Probing row #8, Direction: <-
 G1 X{250.308 - sensors.probes[0].offsets[0]} Y{183.744 - sensors.probes[0].offsets[1]} F{sensors.probes[0].travelSpeed * 60}
@@ -164,3 +164,8 @@ M929 S0
 ; call the custom GCode to create the heightmap file, all params must be passed as strings
 ; the paths to the files here need to be in relative format, the scripts working directory is the root of the virtual SD card
 M7029 L"./sys/bed-sample.log" H"./sys/heightmap.csv" X"0:300" Y"0:200" P"25:17"
+
+; Update DWC with new mesh
+; The DWC only updates the mesh in the GUI when G29 is used to load it, so load it now and then disable compensation
+G29 S1
+G29 S2
