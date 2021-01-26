@@ -37,7 +37,7 @@ M350 X16 Y16 Z16 C16 E16:16:16:16 I1     ; Configure x16 microstepping with inte
 ; Steps per MM (computed from microstepping)
 M92 X{12.5 * move.axes[0].microstepping.value} Y{12.5 * move.axes[1].microstepping.value} Z{100 * move.axes[2].microstepping.value}
 M92 C{12.5 * move.axes[3].microstepping.value}
-M92 E816:816:816:816   ;TODO: I don't know the correct expression syntax for this
+M92 E830:830:830:830   ;TODO: I don't know the correct expression syntax for this
 
 ; Set motor currents (mA) and motor idle factor in percent
 M906 X1200 Y1200 Z1330 C400 E700:700:700:700 I30 
@@ -63,9 +63,9 @@ M574 Z0                             ; No Z endstop
 M574 C1 S3                          ; Stall detect coupler at low end of its range
 
 ; ## Z-axis homing switch
-M558 P8 C"io4.in" I0 A2 S0.003 H1 F200 T{200 * 60} ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
+M558 P8 C"io4.in" I0 A2 S0.03 H2 F150 T{200 * 60} ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
 G31 P200 X0 Y-12 Z0                 ; Set Z probe trigger value and x/y offset
-M557 X-12:300 Y0:200  P25:17        ; Set mesh bed leveling grid
+M557 X5:295 Y5:195  P15:10          ; Set mesh bed leveling grid
 
 ; ## Stall Detection Coupler
 M915 C S6 F0 H200 R0                ; This still never stalls?
