@@ -59,7 +59,7 @@ def printGCode(probingRows):
             
             
             print('G1 X{{{} - sensors.probes[0].offsets[0]}} Y{{{} - sensors.probes[0].offsets[1]}} F{{sensors.probes[0].travelSpeed * 60}}'.format(xStr, yStr))
-            print('M98 P"/macros/mesh-bed-leveling/probe-point.g"')
+            print('M98 P"/sys/probe-point.g"')
             
 
 reflectX()
