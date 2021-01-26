@@ -5,7 +5,7 @@
 M703
 
 ; restore babystepping
-M98 P"/macros/babystep/restore.g"
+M98 P"/sys/babystep/restore.g"
 
 ;heatup
 M116 P{state.currentTool}

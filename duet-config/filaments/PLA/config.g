@@ -15,7 +15,7 @@ M207 P{state.currentTool} S0.2 F{40 * 60}
 
 ; enable pressure advance
 G10 L2 P9 X0.030
-M98 P"/macros/Filament/set_pressure_advance.g"
+M98 P"/sys/filament/set_pressure_advance.g"
 
 ; cap max fan speed to 80%
 M106 P{tools[state.currentTool].fans[0]} L0.1  X0.8

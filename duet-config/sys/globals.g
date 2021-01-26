@@ -43,7 +43,7 @@ G10 L2 P7 X0.4 Y0.4 Z0.4 C0.4
 
 ; P8 unused
 
-; P9 is reserved as the program stack for setting variables with /macros/scripts/copy_var.g
+; P9 is reserved as the program stack for setting variables with /sys/copy_var.g
 G10 L2 P9 X0 Y0 Z0 C0
 
 ; TODO: tool to store the bed configuration and make changing it in the UI possible

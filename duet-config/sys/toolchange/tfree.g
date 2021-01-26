@@ -2,7 +2,7 @@
 ; called when a tool is freed
 
 ; save babystepping value
-M98 P"/macros/babystep/save.g"
+M98 P"/sys/babystep/save.g"
 ; set the babystepping value to 0, mostly for web UI visibility and sanity checking
 M290 S0 R0
 
