@@ -1,15 +1,22 @@
 {
-    "folders":
-    [
+	"build_systems":
+	[
+		{
+			"name": "Deploy GCode To Duet",
+			"shell_cmd": "rsync -iahp --exclude=\".*\" /Users/gareth/Documents/GitHub/E3D-ToolChanger-Configuration/duet-config/ /Volumes/Duet3SD/"
+		},
         {
-            "path": "."
+            "name": "Deploy Scripts To Duet",
+            "shell_cmd": "rsync -iahp /Users/gareth/Documents/GitHub/rrf-mesh-level/mesh-level.py /Volumes/Duet3SD/sys/scripts/mesh-level.py"
         }
-    ],
-    "build_systems":
-    [
-        {
-            "name": "Deploy To Duet",
-            "shell_cmd": "rsync -iahp --exclude=\".*\" /Users/gareth/Documents/GitHub/E3D-ToolChanger-Configuration/duet-config/ /Volumes/Duet3SD/"
-        }
-    ]
+	],
+	"folders":
+	[
+		{
+			"path": "."
+		},
+		{
+			"path": "/Users/gareth/Documents/GitHub/rrf-mesh-level"
+		}
+	]
 }
