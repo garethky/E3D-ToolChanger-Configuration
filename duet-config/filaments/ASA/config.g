@@ -10,6 +10,9 @@ G10 L2 P4 X260 Y105 Z{5 * 60} C{15 * 60}
 ; C -
 G10 L2 P5 X{30 * 60} Y{80 * 60} Z0 C0
 
+; Extrusion factor: 95%
+M221 S95
+
 ; set retraction parameters
 M207 P{state.currentTool} S0.5 F{25 * 60}
 
