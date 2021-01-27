@@ -1,7 +1,9 @@
 ; Bed Mesh Leveling
 
-; Home Z
-; TODO: conditionally home Z only if not already homed
+; wait for top of bed temp to stabilize (this returns immediatly if the bed is not active)
+M98 P"/sys/stabilize-bed-temp.g"
+
+; Home Z, only if not already homed
 if move.axes[2].homed == false
     G28 Z
 
