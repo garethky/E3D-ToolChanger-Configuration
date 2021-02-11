@@ -8,7 +8,7 @@ if move.axes[2].homed == false
     G28 Z
 
 ; set the sensor offset, this seems to get reset to 0,0 on my printer for some reason that I dont fully understand
-G31 P200 X0 Y-12 Z0
+G31 P200 X11.7 Y7.1 Z0
 
 ; delete any previous log file so previously probed points dont get sampled
 M30 "/sys/meshbedprobe.log"
