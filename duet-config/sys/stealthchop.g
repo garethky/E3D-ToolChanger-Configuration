@@ -4,12 +4,16 @@
 G91                     ; use relative positioning
 
 M18                     ; cut all motor power
-M915 P0 T5              ; set coolstep threshold (disables stall detection)
-M915 P1 T5              ; set coolstep threshold (disables stall detection)
-M915 P2 T5
+
+; set tpwmthrs, thigh a tcoolthrs values
+; 16 here means something like 750mm/sec. Basically its a crazy high speed the 
+; printer will never reach forcing to always be in StealthChop mode
 M569 P0 D3 H16 V16      ; set stealthChop mode, set tpwmthrs and thigh
+M915 P0 T16             ; set coolstep threshold, tcoolthrs
 M569 P1 D3 H16 V16      ; set stealthChop mode, set tpwmthrs and thigh
+M915 P1 T16             ; set coolstep threshold, tcoolthrs
 M569 P2 D3 H16 V16      ; set stealthChop mode, set tpwmthrs and thigh
+M915 P2 T16				; set coolstep threshold, tcoolthrs
 
 ; log driver state after reset
 M569 P0
