@@ -24,16 +24,16 @@ while true
     ; Store the current temperature reading from the Top Bed thermistor:
     G10 L2 P9 X{sensors.analog[5].lastReading}
     
-    ; Dwell for 500ms
-    G4 P500
+    ; Dwell for 1s
+    G4 P1000
     
     ; if the temperature increase is less than 0.005 C over that time break the loop
-    if {sensors.analog[5].lastReading - move.axes[0].workplaceOffsets[8]} < 0.005
-        echo "Top of bed temperature stabilized at ", sensors.analog[5].lastReading, "C in ", move.axes[1].workplaceOffsets[8] / 2, " seconds"
+    if {sensors.analog[5].lastReading - move.axes[0].workplaceOffsets[8]} < 0.0025
+        echo "Top of bed temperature stabilized at ", sensors.analog[5].lastReading, "C in ", move.axes[1].workplaceOffsets[8], " seconds"
         break
     
     ; if 5 minutes has passed abort with an error
-    if {{move.axes[1].workplaceOffsets[8] / 2} > {5 * 60}}:
+    if {{move.axes[1].workplaceOffsets[8]} > {5 * 60}}:
         abort "Bed temp stabilization failed after 5 minutes"
 
     ; increment the loop counter
