@@ -14,9 +14,9 @@ M84 S120                            ; Set idle timeout
 ; # Drives & Axes
 
 ; ## main board drivers
-M569 P0   S1 D3 F3 H35 V35              ; Drive 0 X, 35 here equates to ~100mm/s
-M569 P1   S0 D3 F3 H35 V35              ; Drive 1 Y
-M569 P2   S1 D3 V100                    ; Drive 2 Z
+M569 P0   S1 D3 F3 H16 V16              ; Drive 0 X
+M569 P1   S0 D3 F3 H16 V16              ; Drive 1 Y
+M569 P2   S1 D3 H16 V16                 ; Drive 2 Z
 M569 P3   S0 D2                         ; Drive 3 C
 M569 P4   S0 D2 H5 V5                   ; Drive 4 E0
 M569 P5   S1 D2 H5 V5                   ; Drive 5 E1
@@ -35,23 +35,23 @@ M584 X0 Y1 Z2 C3 E4:5:1.1:1.2
 M350 X16 Y16 Z16 C16 E16:16:16:16 I1     ; Configure x16 microstepping with interpolation on all axes
 
 ; Steps per MM (computed from microstepping)
-M92 X{12.5 * move.axes[0].microstepping.value} Y{12.5 * move.axes[1].microstepping.value} Z{100 * move.axes[2].microstepping.value}
+M92 X{6.25 * move.axes[0].microstepping.value} Y{6.25 * move.axes[1].microstepping.value} Z{100 * move.axes[2].microstepping.value}
 M92 C{12.5 * move.axes[3].microstepping.value}
 M92 E830:830:830:830   ;TODO: I don't know the correct expression syntax for this
 
 ; Set motor currents (mA) and motor idle factor in percent
-M906 X1200 Y1200 Z1330 C400 E700:700:700:700 I30 
+M906 X1700 Y1700 Z1330 C400 E700:700:700:700 I30 
 
 ; Enabled Stall Guard™️ and Cool Step™️ in the Trinamic stepper drivers
-M915 P0:P1 S10 F0 H80 R0 T50764
+;M915 P0:P1 S10 F0 H80 R0 T50764
 
 ; Speed, Acceleration & Jerk
-M203 X{600 * 60} Y{600 * 60} Z{10 * 60} C{83.3 * 60} E3600:3600:3600:3600    ; Max speeds (mm/min)
-M201 X3000       Y3000       Z240       C500         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
+M203 X{150 * 60} Y{150 * 60} Z{10 * 60} C{300 * 60}  E3600:3600:3600:3600    ; Max speeds (mm/min)
+M201 X3000       Y3000       Z240       C400         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
 M566 X{10 * 60}  Y{10 * 60}  Z{2 * 60}  C{0.6 * 60}  E600:600:600:600        ; Max instantaneous speed changes/Jerk (mm/min)
 
 ; cancel ringing at 50Hz
-M593 F50
+;M593 F0
 
 ; #######################
 ; # Homing Configuration
@@ -63,12 +63,13 @@ M574 Z0                             ; No Z endstop
 M574 C1 S3                          ; Stall detect coupler at low end of its range
 
 ; ## Z-axis homing switch
-M558 P8 C"io4.in" I0 A2 S0.03 H2 F150 T{200 * 60} ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
-G31 P200 X0 Y-12 Z0                 ; Set Z probe trigger value and x/y offset
+M558 P8 C"io4.in" I0 A3 S0.03 H2 F150 T{200 * 60} ; Set Z probe type to switch, the axes for which it is used and the dive height + speeds
+G31 P200                            ; Set Z probe trigger value, see bed.g for the offset
 M557 X5:295 Y5:195  P15:10          ; Set mesh bed leveling grid
 
-; ## Stall Detection Coupler
-M915 C S6 F0 H200 R0                ; This still never stalls?
+; ## Stall Detection Coupler.
+; It never truly stalls correctly so the detection is range is set to the minimum value, also stall logging is enabled as it might notify you of an error
+M915 C S63 F0 H200 R1
 
 ; #######################
 ; # Heaters
