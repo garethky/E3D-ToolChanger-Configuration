@@ -8,10 +8,10 @@ M208 X-30.9:330.5 Y-45.1:257 Z0:280 C0:500
 ; NOTE: Z-axis: making this number smaller (more negative) INCREASES the first layer height!
 ;       If your baby step value is negative, you want to decrease first layer height, so make this value more positive.
 ; Note: X/Y Axes: These work backwards
-G10 P0 X5.0 Y41.5 Z-3.65 ; T1
-G10 P1 X5.0 Y41.5 Z-3.65 ; T2
-G10 P2 X5.0 Y41.5 Z-3.65 ; T3
-G10 P3 X5.0 Y41.5 Z-3.65 ; T4
+G10 P0 X4.3 Y41.05 Z-4.75 ; T1
+G10 P1 X4.3 Y41.05 Z-4.75 ; T2
+G10 P2 X4.3 Y41.05 Z-4.75 ; T3
+G10 P3 X4.3 Y41.05 Z-4.75 ; T4
 
 ; Store per-tool configuration in work coordinate systems
 ; tools map to an axis, X = Tool 1, Y = Tool 2 etc.
