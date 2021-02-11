@@ -26,10 +26,13 @@ while iterations < sensors.probes[0].maxProbeCount
     ; by convention RRF subtracts your sensor offsets, so they are added back here to arrive at the Machine Position being probed
     M118 L1 S{"Mesh Point: X" ^ move.axes[0].machinePosition + sensors.probes[0].offsets[0] ^ " Y" ^ move.axes[1].machinePosition + sensors.probes[0].offsets[1] ^ " Z" ^ move.axes[2].machinePosition}
 
-    ; This drops the Z by the hysteresis height, for my sensor 0.4 seems reliable
+    ; This drops the Z by the hysteresis height, for my sensor 0.2 seems reliable
     ; This is smaller than the dive height, saving z travel time
     ; also the retract speed is 1.5x the dive speed saving time
-    G1 Z0.4 F{sensors.probes[0].speed * 1.5 * 60}
+    G1 Z0.2 F{sensors.probes[0].speed * 2 * 60}
+
+; At the end of the loop pick the sensor up an additional 0.2
+;G1 Z0.2 F{sensors.probes[0].speed * 1.5 * 60}
 
 ; disable relative moves
 G90
