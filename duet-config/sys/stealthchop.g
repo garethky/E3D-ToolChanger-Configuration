@@ -1,5 +1,5 @@
 
-; StelthChop Calibration
+; StealthChop Calibration
 
 G91                     ; use relative positioning
 
