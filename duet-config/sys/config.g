@@ -46,8 +46,8 @@ M906 X1700 Y1700 Z1330 C400 E700:700:700:700 I30
 ;M915 P0:P1 S10 F0 H80 R0 T50764
 
 ; Speed, Acceleration & Jerk
-M203 X{150 * 60} Y{150 * 60} Z{10 * 60} C{300 * 60}  E3600:3600:3600:3600    ; Max speeds (mm/min)
-M201 X3000       Y3000       Z240       C400         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
+M203 X{170 * 60} Y{170 * 60} Z{10 * 60} C{300 * 60}  E3600:3600:3600:3600    ; Max speeds (mm/min)
+M201 X2000       Y2000       Z240       C400         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
 M566 X{10 * 60}  Y{10 * 60}  Z{2 * 60}  C{0.6 * 60}  E600:600:600:600        ; Max instantaneous speed changes/Jerk (mm/min)
 
 ; cancel ringing at 50Hz
