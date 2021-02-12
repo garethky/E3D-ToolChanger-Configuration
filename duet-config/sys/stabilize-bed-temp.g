@@ -11,7 +11,7 @@
 
 ; if the bed is not active, just return
 if heat.heaters[0].active <= 0.0
-	M99
+    M99
 
 echo "Bed heater is active, waiting for temp to stabilize"
 

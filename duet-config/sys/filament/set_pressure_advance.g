@@ -13,4 +13,4 @@ elif {state.currentTool} == 2
 elif {state.currentTool} == 3
     M572 D3 S{move.axes[0].workplaceOffsets[8]}
 else
-	abort   ; -1 is not a valid tool
+    abort   ; -1 is not a valid tool
