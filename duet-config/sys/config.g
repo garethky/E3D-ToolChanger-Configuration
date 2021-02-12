@@ -14,16 +14,16 @@ M84 S120                            ; Set idle timeout
 ; # Drives & Axes
 
 ; ## main board drivers
-M569 P0   S1 D3 F3 H16 V16              ; Drive 0 X
-M569 P1   S0 D3 F3 H16 V16              ; Drive 1 Y
-M569 P2   S1 D3 H16 V16                 ; Drive 2 Z
-M569 P3   S0 D2                         ; Drive 3 C
-M569 P4   S0 D2 H5 V5                   ; Drive 4 E0
-M569 P5   S1 D2 H5 V5                   ; Drive 5 E1
+M569 P0   S1 D3                     ; Drive 0 X
+M569 P1   S0 D3                     ; Drive 1 Y
+M569 P2   S1 D3                     ; Drive 2 Z
+M569 P3   S0 D2                     ; Drive 3 C
+M569 P4   S0 D2                     ; Drive 4 E0
+M569 P5   S1 D2                     ; Drive 5 E1
 ; ## Tool board drivers
-M569 P1.1 S1 D2 H5 V5                   ; Drive 7 E2
-M569 P1.2 S0 D2 H5 V5                   ; Drive 8 E3
-M569 P1.0 S0                            ; Drive 6 (not used)
+M569 P1.1 S1 D2                     ; Drive 7 E2
+M569 P1.2 S0 D2                     ; Drive 8 E3
+M569 P1.0 S0                        ; Drive 6 (not used)
 
 ; Create machine axes and assign drives to them
 M584 X0 Y1 Z2 C3 E4:5:1.1:1.2      
@@ -41,9 +41,6 @@ M92 E830:830:830:830   ;TODO: I don't know the correct expression syntax for thi
 
 ; Set motor currents (mA) and motor idle factor in percent
 M906 X1700 Y1700 Z1330 C400 E700:700:700:700 I30 
-
-; Enabled Stall Guard™️ and Cool Step™️ in the Trinamic stepper drivers
-;M915 P0:P1 S10 F0 H80 R0 T50764
 
 ; Speed, Acceleration & Jerk
 M203 X{170 * 60} Y{170 * 60} Z{10 * 60} C{300 * 60}  E3600:3600:3600:3600    ; Max speeds (mm/min)
