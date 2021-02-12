@@ -14,7 +14,7 @@ G10 L2 P5 X{30 * 60} Y{80 * 60} Z0 C0
 M221 S95
 
 ; set retraction parameters
-M207 P{state.currentTool} S0.5 F{25 * 60}
+M207 P{state.currentTool} S0.4 F{35 * 60}
 
 ; enable pressure advance
 G10 L2 P9 X0.030
