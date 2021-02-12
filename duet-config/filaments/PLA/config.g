@@ -21,4 +21,4 @@ G10 L2 P9 X0.030
 M98 P"/sys/filament/set_pressure_advance.g"
 
 ; cap max fan speed to 80%
-M106 P{tools[state.currentTool].fans[0]} L0.1  X0.8
+; M106 P{tools[state.currentTool].fans[0]} L0.1  X0.8
