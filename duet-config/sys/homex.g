@@ -6,6 +6,8 @@
 if !move.axes[1].homed
     M98 P"homey.g"            ; Home Y
 
+M204 P1000               ; limit acceleration
+
 ; even if it was homed it might not be in the right location, so fix that
 ; And even if it is homed, the machine may have just crashed so use H1 just in case
 G1 H1 Y-42.9  F2000 

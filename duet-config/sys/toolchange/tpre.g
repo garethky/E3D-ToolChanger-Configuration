@@ -6,6 +6,8 @@
 ; Double check that the couper is unlocked
 M98 P"/macros/Unlock Coupler"
 
+M204 P1000    ; limit acceleration
+
 ; If the toolead is across the safety line, move back back behind the safety line
 if move.axes[1].machinePosition > 200
     G53 G1 Y200 F10500

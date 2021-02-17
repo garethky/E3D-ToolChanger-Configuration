@@ -6,6 +6,8 @@ M98 P"/sys/babystep/save.g"
 ; set the babystepping value to 0, mostly for web UI visibility and sanity checking
 M290 S0 R0
 
+M204 P1000    ; limit acceleration
+
 ;Drop the bed
 G91
 G1 Z4 F1000

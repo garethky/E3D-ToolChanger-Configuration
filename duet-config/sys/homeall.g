@@ -3,6 +3,7 @@
 
 ; X-Axis Homing Switch Avoidance
 G91                      ; use relative positioning
+M204 P1000               ; limit acceleration
 M564 H0                  ; enable movement of unhomed X axis
 M913 X30 Y30             ; Set a very low motor current to avoid damage if the X axis collides with the right side of the printer.
 G1 X15 F2000             ; kick the X axis to the right by 15mm to clear the X axis limit switch. If this is not cleared the switch will break!
