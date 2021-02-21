@@ -17,5 +17,5 @@ M221 S95
 M207 P{state.currentTool} S0.4 F{35 * 60}
 
 ; enable pressure advance
-G10 L2 P9 X0.030
+G10 L2 P9 X0.075
 M98 P"/sys/filament/set_pressure_advance.g"

@@ -14,9 +14,9 @@ M84 S120                            ; Set idle timeout
 ; # Drives & Axes
 
 ; ## main board drivers
-M569 P0   S1 D3                     ; Drive 0 X
-M569 P1   S0 D3                     ; Drive 1 Y
-M569 P2   S1 D3                     ; Drive 2 Z
+M569 P0   S0 D2                     ; Drive 0 X
+M569 P1   S0 D2                     ; Drive 1 Y
+M569 P2   S1 D2                     ; Drive 2 Z
 M569 P3   S0 D2                     ; Drive 3 C
 M569 P4   S0 D2                     ; Drive 4 E0
 M569 P5   S1 D2                     ; Drive 5 E1
@@ -43,12 +43,12 @@ M92 E830:830:830:830   ;TODO: I don't know the correct expression syntax for thi
 M906 X1700 Y1700 Z1330 C400 E700:700:700:700 I30 
 
 ; Speed, Acceleration & Jerk
-M203 X{170 * 60} Y{170 * 60} Z{10 * 60} C{300 * 60}  E3600:3600:3600:3600    ; Max speeds (mm/min)
-M201 X2000       Y2000       Z240       C400         E3000:3000:3000:3000    ; Max accelerations (mm/s^2)
-M566 X{10 * 60}  Y{10 * 60}  Z{2 * 60}  C{0.6 * 60}  E600:600:600:600        ; Max instantaneous speed changes/Jerk (mm/min)
+M203 X{300 * 60} Y{300 * 60} Z{10 * 60} C{300 * 60}  E3600:3600:3600:3600    ; Max speeds (mm/min)
+M201 X2000       Y2000       Z280       C400         E6000:6000:6000:6000    ; Max accelerations (mm/s^2)
+M566 X{10 * 60}  Y{10 * 60}  Z{2 * 60}  C{0.6 * 60}  E1000:1000:1000:1000 P1 ; Max instantaneous speed changes/Jerk (mm/min)
 
 ; cancel ringing at 50Hz
-;M593 F0
+M593 F45
 
 ; #######################
 ; # Homing Configuration
